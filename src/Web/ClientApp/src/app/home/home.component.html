@@ -1,0 +1,36 @@
+<div ngClass="dark Home">
+
+  <div ngClass="LS">
+    <div>
+      <input type='text' placeholder='Search' ngClass="SI p-2" />
+    </div>
+    <div>
+      <h2 ngClass='mt-2 p-2'>Articles</h2>
+      <app-home-card [article]="tez" />
+    </div>
+  </div>
+
+  <div ngClass="RS">
+    <h5>
+      People you might be interested
+    </h5>
+
+    <div ngClass="Suggest mt-4">
+      <div>
+        <img src='https://m.media-amazon.com/images/M/MV5BNTRiMWRlZDItYmUzOS00YmVhLTkwY2EtMjQwMDllOTEzNWE2XkEyXkFqcGdeQXVyNjUxMjc1OTM@._V1_.jpg' alt='' />
+        Thomas Friedman
+      </div>
+      <button ngClass='p-2'>Follow</button>
+    </div>
+
+    <div ngClass="Suggest mt-4">
+      <div>
+        <img src='https://egs.edu/wp-content/uploads/2019/06/slavoj_zizek_saas-fee.jpg' alt='' />
+        Slavoj Žižek
+      </div>
+      <button ngClass='p-2'>Follow</button>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,11 @@
+.dark {
+  background: #111111;
+}
+
+.light {
+  background: #fafafa;
+}
+
+.Theme {
+  min-height: 100vh;
+}

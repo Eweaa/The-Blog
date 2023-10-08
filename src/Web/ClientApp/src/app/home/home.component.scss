@@ -1,0 +1,75 @@
+.light{
+    color: black !important;
+    .LS{
+        input{
+            color: black !important;
+        }
+    }
+    .Suggest{
+        button{
+            color: black !important;
+            border: 1px solid black !important;
+            &:hover{
+                color: white !important;
+                background: black !important;
+            }
+        }
+    }
+}
+
+.Home{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    color: white;
+    width: 90%;
+    margin-inline: auto;
+    .LS{
+        width: 60%;
+        h2{
+            border-bottom: 1px solid grey;
+        }
+        .SI{
+            border: 1px solid grey;
+            border-radius: 20px;
+            background: transparent;
+            color: white;
+        }
+    }
+    .RS{
+        width: 30%;
+        .Suggest{
+            display: flex;
+            justify-content: space-between;
+            img{
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                margin-right:10px;
+                object-fit: cover;
+            }
+            button{
+                color: white;
+                background: transparent;
+                border: 1px solid white;
+                border-radius: 25px;
+                transition: all ease-in-out 0.2s;
+                font-weight: bold;
+                &:hover{
+                    color: black;
+                    background: white;
+                    border: 1px soild black;
+                }
+            }
+        }
+    }
+}
+
+@media (width < 500px) {
+    .LS{
+        width: 100% !important;
+    }
+    .RS{
+        display: none;
+    }
+}

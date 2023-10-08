@@ -1,0 +1,38 @@
+<div style="width: 90%; margin:0 auto">
+
+  <nav ngClass="Navbar dark p-4">
+    <h1>
+      <a routerLink='/'>The Blog</a>
+    </h1>
+
+    <ul>
+      <li><a routerLink='/profile' ngClass='p-2'>Profile</a></li>
+      <li><a routerLink='/bookmarks' ngClass='p-2 mx-2'>Bookmarks</a></li>
+      <li>
+        <img src='https://tvline.com/wp-content/uploads/2023/04/succession-season-4-episode-6-kendall-roy.png?w=620' (click)="showDrop()" alt='profile' />
+        <div [hidden]="drop" ngClass="drop">
+          <!--<a routerLink='/profile' ngClass='p-2' (click)="showDrop()">Profile</a>-->
+          <!--<a routerLink='/bookmarks' ngClass='p-2' (click)="showDrop()">Bookmarks</a>-->
+          <a routerLink='/todo' ngClass='p-2' (click)="showDrop()">Todo</a>
+          <a routerLink='/counter' ngClass='p-2' (click)="showDrop()">Counter</a>
+          <a routerLink='fetch-data' ngClass='p-2' (click)="showDrop()">Fetch data</a>
+          <a href="/api" target="_blank" ngClass='p-2'>Swagger</a>
+          <a href="/Identity/Account/Manage" ngClass='p-2'>Account</a>
+          <button ngClass='p-2'>Logout</button>
+        </div>
+      </li>
+      <button ngClass='mx-2' (click)="toggleTheme()">
+        <span *ngIf="dark else showThis">
+          🌑
+        </span>
+        <ng-template #showThis>
+          <span>
+            ☀️
+          </span>
+        </ng-template>
+      </button>
+    </ul>
+  </nav>
+  <hr ngClass="NavLine" />
+
+</div>
