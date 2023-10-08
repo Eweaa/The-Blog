@@ -11,10 +11,8 @@ export class HomeComponent {
   constructor(private service: ArticlesClient) { }
   ngOnInit() {
     this.service.getArticles().subscribe(res => {
-      //this.test = res;
       console.log(res);
       this.tez = res;
-      //this.test = res;
     })
   }
   test:article[];

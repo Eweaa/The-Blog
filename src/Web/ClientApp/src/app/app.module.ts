@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BookmarksComponent } from './Pages/Bookmarks/bookmarks.component';
 import { HomeCardComponent } from './Components/home-card/home-card.component';
 import { ProfileComponent } from './Pages/Prrofile/profile.component';
+import { ArticleComponent } from './Pages/article/article.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { ProfileComponent } from './Pages/Prrofile/profile.component';
     CounterComponent,
     FetchDataComponent,
     TodoComponent,
+    ArticleComponent,
     HomeCardComponent
   ],
   imports: [
@@ -39,7 +41,8 @@ import { ProfileComponent } from './Pages/Prrofile/profile.component';
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'todo', component: TodoComponent },
       { path: 'bookmarks', component: BookmarksComponent },
-      { path: 'profile', component: ProfileComponent },
+      { path: 'profile/:id', component: ProfileComponent },
+      { path: 'article/:id', component: ArticleComponent },
     ]),
     BrowserAnimationsModule,
     ModalModule.forRoot()

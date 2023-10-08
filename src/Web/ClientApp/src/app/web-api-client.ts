@@ -16,7 +16,8 @@ import { HttpClient, HttpHeaders, HttpResponse, HttpResponseBase } from '@angula
 export const API_BASE_URL = new InjectionToken<string>('API_BASE_URL');
 
 export interface IArticlesClient {
-    getArticles(): Observable<Article[]>;
+    getArticles(): Observable<ArticleDto[]>;
+    getArticle(id: number): Observable<Article>;
 }
 
 @Injectable({
@@ -32,7 +33,7 @@ export class ArticlesClient implements IArticlesClient {
         this.baseUrl = baseUrl !== undefined && baseUrl !== null ? baseUrl : "";
     }
 
-    getArticles(): Observable<Article[]> {
+    getArticles(): Observable<ArticleDto[]> {
         let url_ = this.baseUrl + "/api/Articles";
         url_ = url_.replace(/[?&]$/, "");
 
@@ -51,14 +52,14 @@ export class ArticlesClient implements IArticlesClient {
                 try {
                     return this.processGetArticles(response_ as any);
                 } catch (e) {
-                    return _observableThrow(e) as any as Observable<Article[]>;
+                    return _observableThrow(e) as any as Observable<ArticleDto[]>;
                 }
             } else
-                return _observableThrow(response_) as any as Observable<Article[]>;
+                return _observableThrow(response_) as any as Observable<ArticleDto[]>;
         }));
     }
 
-    protected processGetArticles(response: HttpResponseBase): Observable<Article[]> {
+    protected processGetArticles(response: HttpResponseBase): Observable<ArticleDto[]> {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
@@ -72,11 +73,62 @@ export class ArticlesClient implements IArticlesClient {
             if (Array.isArray(resultData200)) {
                 result200 = [] as any;
                 for (let item of resultData200)
-                    result200!.push(Article.fromJS(item));
+                    result200!.push(ArticleDto.fromJS(item));
             }
             else {
                 result200 = <any>null;
             }
+            return _observableOf(result200);
+            }));
+        } else if (status !== 200 && status !== 204) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            return throwException("An unexpected server error occurred.", status, _responseText, _headers);
+            }));
+        }
+        return _observableOf(null as any);
+    }
+
+    getArticle(id: number): Observable<Article> {
+        let url_ = this.baseUrl + "/api/Articles/{Id}";
+        if (id === undefined || id === null)
+            throw new Error("The parameter 'id' must be defined.");
+        url_ = url_.replace("{Id}", encodeURIComponent("" + id));
+        url_ = url_.replace(/[?&]$/, "");
+
+        let options_ : any = {
+            observe: "response",
+            responseType: "blob",
+            headers: new HttpHeaders({
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.request("get", url_, options_).pipe(_observableMergeMap((response_ : any) => {
+            return this.processGetArticle(response_);
+        })).pipe(_observableCatch((response_: any) => {
+            if (response_ instanceof HttpResponseBase) {
+                try {
+                    return this.processGetArticle(response_ as any);
+                } catch (e) {
+                    return _observableThrow(e) as any as Observable<Article>;
+                }
+            } else
+                return _observableThrow(response_) as any as Observable<Article>;
+        }));
+    }
+
+    protected processGetArticle(response: HttpResponseBase): Observable<Article> {
+        const status = response.status;
+        const responseBlob =
+            response instanceof HttpResponse ? response.body :
+            (response as any).error instanceof Blob ? (response as any).error : undefined;
+
+        let _headers: any = {}; if (response.headers) { for (let key of response.headers.keys()) { _headers[key] = response.headers.get(key); }}
+        if (status === 200) {
+            return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
+            let result200: any = null;
+            let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
+            result200 = Article.fromJS(resultData200);
             return _observableOf(result200);
             }));
         } else if (status !== 200 && status !== 204) {
@@ -665,6 +717,118 @@ export class WeatherForecastsClient implements IWeatherForecastsClient {
     }
 }
 
+export class ArticleDto implements IArticleDto {
+    id?: number;
+    title?: string | undefined;
+    content?: string | undefined;
+    date?: string | undefined;
+    comments?: Comment[] | undefined;
+    writerName?: string | undefined;
+
+    constructor(data?: IArticleDto) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.id = _data["id"];
+            this.title = _data["title"];
+            this.content = _data["content"];
+            this.date = _data["date"];
+            if (Array.isArray(_data["comments"])) {
+                this.comments = [] as any;
+                for (let item of _data["comments"])
+                    this.comments!.push(Comment.fromJS(item));
+            }
+            this.writerName = _data["writerName"];
+        }
+    }
+
+    static fromJS(data: any): ArticleDto {
+        data = typeof data === 'object' ? data : {};
+        let result = new ArticleDto();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["id"] = this.id;
+        data["title"] = this.title;
+        data["content"] = this.content;
+        data["date"] = this.date;
+        if (Array.isArray(this.comments)) {
+            data["comments"] = [];
+            for (let item of this.comments)
+                data["comments"].push(item.toJSON());
+        }
+        data["writerName"] = this.writerName;
+        return data;
+    }
+}
+
+export interface IArticleDto {
+    id?: number;
+    title?: string | undefined;
+    content?: string | undefined;
+    date?: string | undefined;
+    comments?: Comment[] | undefined;
+    writerName?: string | undefined;
+}
+
+export class Comment implements IComment {
+    id?: number;
+    content?: string | undefined;
+    articleId?: number;
+    article?: Article | undefined;
+
+    constructor(data?: IComment) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.id = _data["id"];
+            this.content = _data["content"];
+            this.articleId = _data["articleId"];
+            this.article = _data["article"] ? Article.fromJS(_data["article"]) : <any>undefined;
+        }
+    }
+
+    static fromJS(data: any): Comment {
+        data = typeof data === 'object' ? data : {};
+        let result = new Comment();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["id"] = this.id;
+        data["content"] = this.content;
+        data["articleId"] = this.articleId;
+        data["article"] = this.article ? this.article.toJSON() : <any>undefined;
+        return data;
+    }
+}
+
+export interface IComment {
+    id?: number;
+    content?: string | undefined;
+    articleId?: number;
+    article?: Article | undefined;
+}
+
 export class Article implements IArticle {
     id?: number;
     title?: string | undefined;
@@ -731,54 +895,6 @@ export interface IArticle {
     comments?: Comment[] | undefined;
     writerId?: number;
     writer?: Writer | undefined;
-}
-
-export class Comment implements IComment {
-    id?: number;
-    content?: string | undefined;
-    articleId?: number;
-    article?: Article | undefined;
-
-    constructor(data?: IComment) {
-        if (data) {
-            for (var property in data) {
-                if (data.hasOwnProperty(property))
-                    (<any>this)[property] = (<any>data)[property];
-            }
-        }
-    }
-
-    init(_data?: any) {
-        if (_data) {
-            this.id = _data["id"];
-            this.content = _data["content"];
-            this.articleId = _data["articleId"];
-            this.article = _data["article"] ? Article.fromJS(_data["article"]) : <any>undefined;
-        }
-    }
-
-    static fromJS(data: any): Comment {
-        data = typeof data === 'object' ? data : {};
-        let result = new Comment();
-        result.init(data);
-        return result;
-    }
-
-    toJSON(data?: any) {
-        data = typeof data === 'object' ? data : {};
-        data["id"] = this.id;
-        data["content"] = this.content;
-        data["articleId"] = this.articleId;
-        data["article"] = this.article ? this.article.toJSON() : <any>undefined;
-        return data;
-    }
-}
-
-export interface IComment {
-    id?: number;
-    content?: string | undefined;
-    articleId?: number;
-    article?: Article | undefined;
 }
 
 export class Writer implements IWriter {

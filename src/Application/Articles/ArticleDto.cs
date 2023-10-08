@@ -6,7 +6,7 @@ public class ArticleDto
     public int Id { get; set; }
     public string? Title { get; set; }
     public string? Content { get; set; }
-    public DateTime Date { get; set; }
+    public string? Date { get; set; }
     public ICollection<Comment>? Comments { get; set; }
     public string? WriterName { get; set; }
 
@@ -14,7 +14,9 @@ public class ArticleDto
     {
         public Mapping()
         {
-            CreateMap<Article, ArticleDto>().AfterMap((src, dest) => dest.WriterName = src.Writer!.Name);
+            CreateMap<Article, ArticleDto>()
+                .AfterMap((src, dest) => dest.WriterName = src.Writer!.Name)
+                .AfterMap((src, dest) => dest.Date = src.Date.ToString("MM/dd/yyyy"));
         }
     }
 }

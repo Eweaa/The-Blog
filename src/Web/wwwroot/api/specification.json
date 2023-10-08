@@ -20,8 +20,40 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Article"
+                    "$ref": "#/components/schemas/ArticleDto"
                   }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Articles/{Id}": {
+      "get": {
+        "tags": [
+          "Articles"
+        ],
+        "operationId": "GetArticle",
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Article"
                 }
               }
             }
@@ -351,6 +383,65 @@
   },
   "components": {
     "schemas": {
+      "ArticleDto": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "content": {
+            "type": "string",
+            "nullable": true
+          },
+          "date": {
+            "type": "string",
+            "nullable": true
+          },
+          "comments": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/Comment"
+            }
+          },
+          "writerName": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "Comment": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "content": {
+            "type": "string",
+            "nullable": true
+          },
+          "articleId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "article": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Article"
+              }
+            ]
+          }
+        }
+      },
       "Article": {
         "type": "object",
         "additionalProperties": false,
@@ -387,32 +478,6 @@
             "oneOf": [
               {
                 "$ref": "#/components/schemas/Writer"
-              }
-            ]
-          }
-        }
-      },
-      "Comment": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "content": {
-            "type": "string",
-            "nullable": true
-          },
-          "articleId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "article": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Article"
               }
             ]
           }

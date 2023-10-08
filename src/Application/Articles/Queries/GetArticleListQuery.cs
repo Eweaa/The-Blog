@@ -2,8 +2,8 @@
 using BlogApp.Domain.Entities;
 
 namespace BlogApp.Application.Articles.Queries;
-public record GetArticleListQuery : IRequest<List<Article>>;
-public class GetArticleListQueryHandler : IRequestHandler<GetArticleListQuery, List<Article>>
+public record GetArticleListQuery : IRequest<List<ArticleDto>>;
+public class GetArticleListQueryHandler : IRequestHandler<GetArticleListQuery, List<ArticleDto>>
 {
     private readonly IApplicationDbContext _context;
     private readonly IMapper _mapper;
@@ -12,10 +12,10 @@ public class GetArticleListQueryHandler : IRequestHandler<GetArticleListQuery, L
         _context = context;
         _mapper = mapper;
     }
-    public async Task<List<Article>> Handle(GetArticleListQuery request, CancellationToken cancellationToken)
+    public async Task<List<ArticleDto>> Handle(GetArticleListQuery request, CancellationToken cancellationToken)
     {
-        var Articles = await _context.Articles.ToListAsync(cancellationToken);
-        var ArticlesVM  = _mapper.Map<List<Article>>(Articles);
+        var Articles = await _context.Articles.Include(a => a.Writer).ToListAsync(cancellationToken);
+        var ArticlesVM  = _mapper.Map<List<ArticleDto>>(Articles);
         return ArticlesVM;
     }
 }

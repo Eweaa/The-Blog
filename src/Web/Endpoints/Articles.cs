@@ -10,9 +10,15 @@ public class Articles : EndpointGroupBase
     {
         app.MapGroup(this)
             //.RequireAuthorization()
-            .MapGet(GetArticles);
+            .MapGet(GetArticles)
+            .MapGet(GetArticle, "{Id}");
     }
-    public async Task<List<Article>> GetArticles(ISender sender,[AsParameters] GetArticleListQuery query)
+    public async Task<List<ArticleDto>> GetArticles(ISender sender,[AsParameters] GetArticleListQuery query)
+    {
+        return await sender.Send(query);
+    }
+
+    public async Task<Article> GetArticle(ISender sender, [AsParameters] GetArticleQuery query)
     {
         return await sender.Send(query);
     }

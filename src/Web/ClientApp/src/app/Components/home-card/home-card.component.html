@@ -1,38 +1,38 @@
 <div ngClass="HomeCard py-4 mx-2" *ngFor="let a of article">
 
   <div ngClass="HomeCardHeader">
-    <a>
-      <img src={{a.writerImg}} alt={{a.writer}} />
-      {{a.writer}}
-    </a>
+    <!--<a>
+      <img src={{a.writerImg}} alt={{a.writerName}} />
+      {{a.writerName}}
+    </a>-->
 
-    <<!--a *ngIf="a.writerImg != null else Gene">
-      <img src={{a.writerImg}} alt={{a.writer}} />
-      {{a.writer}}
+    <!--a *ngIf="a.writerImg != null else Gene">
+    <img src={{a.writerImg}} alt={{a.writerName}} />
+      {{a.writerName}}
     </a>-->
 
 
-    <!--<img *ngIf="a.writerImg != null else Gene" src={{a.writerImg}} />-->
-    <!--<ng-template #Gene>
-      <a href="https://www.google.com">
-        <img src="../../../assets/GenericUser.png" alt={{a.writer}}/>
-        {{a.writer}}
-      </a>
-    </ng-template>-->
+    <a routerLink="/profile/">
+      <img *ngIf="a.writerImg != null else Gene" src={{a.writerImg}} />
+      <ng-template #Gene>
+        <img src="../../../assets/GenericUser.png" alt={{a.writerName}}/>
+        {{a.writerName}}
+      </ng-template>
+    </a>
 
-    
+
 
     <div ngClass="mx-2" style="display: inline-block;">
       {{a.date}}
     </div>
   </div>
 
-  <a ngClass="HomeCardBody mt-3">
+  <a routerLink="/article/{{a.id}}" ngClass="HomeCardBody mt-3">
     <div>
       <h3>{{a.title}}</h3>
       <p style="word-break: break-word;">{{a.content}}</p>
     </div>
-    <img src={{a.articleImg}} alt={{a.writer}} />
+    <img src={{a.articleImg}} alt={{a.writerName}} />
   </a>
 
   <div ngClass="Tools mt-3">

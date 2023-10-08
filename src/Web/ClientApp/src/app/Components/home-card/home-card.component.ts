@@ -21,7 +21,7 @@ export class HomeCardComponent {
 interface article {
   id: number,
   writerImg: string,
-  writer: string,
+  writerName: string,
   date: string,
   title: string,
   content: string,
