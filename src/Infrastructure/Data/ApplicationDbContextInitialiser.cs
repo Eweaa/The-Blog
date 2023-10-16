@@ -135,6 +135,15 @@ public class ApplicationDbContextInitialiser
             _context.AddRange(Comments);
         }
 
+        if (!_context.Bookmarks.Any())
+        {
+            var Bookmarks = new List<Bookmark>()
+            {
+                new Bookmark(){ WriterId = 6 },
+            };
+            _context.AddRange(Bookmarks);
+        }
+
         await _context.SaveChangesAsync();
     }
 }

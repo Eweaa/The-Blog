@@ -12,7 +12,7 @@ export class NavMenuComponent {
   dark: boolean = true;
 
   toggleTheme = () => {
-    this.dark = !this.dark
+    this.dark = !this.dark;
   }
 
   showDrop = () => {

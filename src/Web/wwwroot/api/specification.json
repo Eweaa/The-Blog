@@ -53,7 +53,42 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Article"
+                  "$ref": "#/components/schemas/ArticleDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Articles/bookmark/{Id}": {
+      "get": {
+        "tags": [
+          "Articles"
+        ],
+        "operationId": "GetBookmarkArticles",
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ArticleDto"
+                  }
                 }
               }
             }
@@ -379,6 +414,38 @@
           }
         }
       }
+    },
+    "/api/Writers/{Id}": {
+      "get": {
+        "tags": [
+          "Writers"
+        ],
+        "operationId": "GetWriter",
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Writer"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -403,104 +470,13 @@
             "type": "string",
             "nullable": true
           },
-          "comments": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/Comment"
-            }
-          },
           "writerName": {
             "type": "string",
             "nullable": true
-          }
-        }
-      },
-      "Comment": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "content": {
-            "type": "string",
-            "nullable": true
-          },
-          "articleId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "article": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Article"
-              }
-            ]
-          }
-        }
-      },
-      "Article": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "title": {
-            "type": "string",
-            "nullable": true
-          },
-          "content": {
-            "type": "string",
-            "nullable": true
-          },
-          "date": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "comments": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/Comment"
-            }
           },
           "writerId": {
             "type": "integer",
             "format": "int32"
-          },
-          "writer": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Writer"
-              }
-            ]
-          }
-        }
-      },
-      "Writer": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "articles": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/Article"
-            }
           }
         }
       },
@@ -771,6 +747,152 @@
           "summary": {
             "type": "string",
             "nullable": true
+          }
+        }
+      },
+      "Writer": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "writerImg": {
+            "type": "string",
+            "nullable": true
+          },
+          "articles": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/Article"
+            }
+          },
+          "bookmark": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Bookmark"
+              }
+            ]
+          }
+        }
+      },
+      "Article": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "content": {
+            "type": "string",
+            "nullable": true
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "articleImg": {
+            "type": "string",
+            "nullable": true
+          },
+          "comments": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/Comment"
+            }
+          },
+          "writerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "writer": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Writer"
+              }
+            ]
+          },
+          "bookmarkId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "bookmark": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Bookmark"
+              }
+            ]
+          }
+        }
+      },
+      "Comment": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "content": {
+            "type": "string",
+            "nullable": true
+          },
+          "articleId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "article": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Article"
+              }
+            ]
+          }
+        }
+      },
+      "Bookmark": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "writer": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Writer"
+              }
+            ]
+          },
+          "writerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "articles": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/Article"
+            }
           }
         }
       }

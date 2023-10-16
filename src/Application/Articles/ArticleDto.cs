@@ -7,16 +7,16 @@ public class ArticleDto
     public string? Title { get; set; }
     public string? Content { get; set; }
     public string? Date { get; set; }
-    public ICollection<Comment>? Comments { get; set; }
     public string? WriterName { get; set; }
-
+    public int WriterId { get; set; }
     private class Mapping : Profile
     {
         public Mapping()
         {
             CreateMap<Article, ArticleDto>()
                 .AfterMap((src, dest) => dest.WriterName = src.Writer!.Name)
-                .AfterMap((src, dest) => dest.Date = src.Date.ToString("MM/dd/yyyy"));
+                .AfterMap((src, dest) => dest.Date = src.Date.ToString("MM/dd/yyyy"))
+                .AfterMap((src, dest) => dest.WriterId = src.WriterId);
         }
     }
 }

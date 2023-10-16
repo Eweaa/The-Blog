@@ -1,7 +1,6 @@
 <div ngClass="mt-4">
-  <!-- {SD.map((post, index) => <ProfileCard key = {index} title = {post.title} description = {post.description}/>)} -->
   <div>
-    
+    <h1>{{data.name}}</h1>
     <div ngClass="Backdrop" [hidden]="!newPost" (click)="toggleNewPost()"></div>
     <div ngClass="NewPost p-2" [ngStyle]="{transform: newPost ? 'translateY(0)' : 'translateY(-100vh)'}">
       <input name='title' type="text" placeholder='Title' ngClass='p-2 my-1' onChange={getValues} />

@@ -7,7 +7,7 @@ import { ArticlesClient } from '../../web-api-client';
   styleUrls: ['./article.component.scss']
 })
 export class ArticleComponent {
-  Article: any;
+  Article: any = {};
   constructor(private service: ArticlesClient) { }
   ngOnInit() {
     const currentUrl = window.location.href;
@@ -16,7 +16,7 @@ export class ArticleComponent {
     //console.log("test", test);
     this.service.getArticle(parseInt(Id[1])).subscribe(res => {
       this.Article = res;
-      console.log(res);
+      console.log(`res is ${res}`);
     })
   }
 }
