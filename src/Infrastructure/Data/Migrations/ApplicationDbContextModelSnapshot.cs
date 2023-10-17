@@ -33,9 +33,6 @@ namespace BlogApp.Infrastructure.Data.Migrations
                     b.Property<string>("ArticleImg")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("BookmarkId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
@@ -50,8 +47,6 @@ namespace BlogApp.Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BookmarkId");
-
                     b.HasIndex("WriterId");
 
                     b.ToTable("Articles");
@@ -65,13 +60,17 @@ namespace BlogApp.Infrastructure.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("WriterId")
+                    b.Property<int?>("ArticleId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("WriterId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("WriterId")
-                        .IsUnique();
+                    b.HasIndex("ArticleId");
+
+                    b.HasIndex("WriterId");
 
                     b.ToTable("Bookmarks");
                 });
@@ -397,28 +396,26 @@ namespace BlogApp.Infrastructure.Data.Migrations
 
             modelBuilder.Entity("BlogApp.Domain.Entities.Article", b =>
                 {
-                    b.HasOne("BlogApp.Domain.Entities.Bookmark", "Bookmark")
-                        .WithMany("Articles")
-                        .HasForeignKey("BookmarkId");
-
                     b.HasOne("BlogApp.Domain.Entities.Writer", "Writer")
                         .WithMany("Articles")
                         .HasForeignKey("WriterId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Bookmark");
-
                     b.Navigation("Writer");
                 });
 
             modelBuilder.Entity("BlogApp.Domain.Entities.Bookmark", b =>
                 {
+                    b.HasOne("BlogApp.Domain.Entities.Article", "Article")
+                        .WithMany()
+                        .HasForeignKey("ArticleId");
+
                     b.HasOne("BlogApp.Domain.Entities.Writer", "Writer")
-                        .WithOne("Bookmark")
-                        .HasForeignKey("BlogApp.Domain.Entities.Bookmark", "WriterId")
-                        .OnDelete(DeleteBehavior.NoAction)
-                        .IsRequired();
+                        .WithMany("Bookmarks")
+                        .HasForeignKey("WriterId");
+
+                    b.Navigation("Article");
 
                     b.Navigation("Writer");
                 });
@@ -524,11 +521,6 @@ namespace BlogApp.Infrastructure.Data.Migrations
                     b.Navigation("Comments");
                 });
 
-            modelBuilder.Entity("BlogApp.Domain.Entities.Bookmark", b =>
-                {
-                    b.Navigation("Articles");
-                });
-
             modelBuilder.Entity("BlogApp.Domain.Entities.TodoList", b =>
                 {
                     b.Navigation("Items");
@@ -538,7 +530,7 @@ namespace BlogApp.Infrastructure.Data.Migrations
                 {
                     b.Navigation("Articles");
 
-                    b.Navigation("Bookmark");
+                    b.Navigation("Bookmarks");
                 });
 #pragma warning restore 612, 618
         }

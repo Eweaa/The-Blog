@@ -24,7 +24,7 @@ public class Articles : EndpointGroupBase
         return await sender.Send(query);
     }
     
-    public async Task<List<ArticleDto>> GetBookmarkArticles(ISender sender, [AsParameters] GetBookmarkArticleListQuery query)
+    public async Task<List<Bookmark>> GetBookmarkArticles(ISender sender, [AsParameters] GetBookmarkArticleListQuery query)
     {
         return await sender.Send(query);
     }

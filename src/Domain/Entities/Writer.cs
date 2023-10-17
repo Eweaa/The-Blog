@@ -5,5 +5,5 @@ public class Writer
     public string? Name { get; set; }
     public string? WriterImg { get; set; }
     public ICollection<Article>? Articles { get; set; }
-    public Bookmark? Bookmark { get; set; }
+    public ICollection<Bookmark>? Bookmarks { get; set; }
 }

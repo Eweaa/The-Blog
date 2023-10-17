@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace BlogApp.Infrastructure.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class initialMigration : Migration
+    public partial class FixingBookmarkRelationship : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,7 +17,8 @@ namespace BlogApp.Infrastructure.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    WriterImg = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -33,6 +34,7 @@ namespace BlogApp.Infrastructure.Data.Migrations
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Content = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ArticleImg = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     WriterId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -44,6 +46,30 @@ namespace BlogApp.Infrastructure.Data.Migrations
                         principalTable: "Writers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Bookmarks",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    WriterId = table.Column<int>(type: "int", nullable: true),
+                    ArticleId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Bookmarks", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Bookmarks_Articles_ArticleId",
+                        column: x => x.ArticleId,
+                        principalTable: "Articles",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Bookmarks_Writers_WriterId",
+                        column: x => x.WriterId,
+                        principalTable: "Writers",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -72,6 +98,16 @@ namespace BlogApp.Infrastructure.Data.Migrations
                 column: "WriterId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Bookmarks_ArticleId",
+                table: "Bookmarks",
+                column: "ArticleId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Bookmarks_WriterId",
+                table: "Bookmarks",
+                column: "WriterId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Comments_ArticleId",
                 table: "Comments",
                 column: "ArticleId");
@@ -80,6 +116,9 @@ namespace BlogApp.Infrastructure.Data.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Bookmarks");
+
             migrationBuilder.DropTable(
                 name: "Comments");
 

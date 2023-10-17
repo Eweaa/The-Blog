@@ -9,6 +9,7 @@ public class Article
     public ICollection<Comment>? Comments { get; set; }
     public int WriterId { get; set; }
     public Writer? Writer { get; set; }
-    public int? BookmarkId { get; set; }
-    public Bookmark? Bookmark { get; set; }
+    //public int? BookmarkId { get; set; }
+    //public Bookmark? Bookmark { get; set; }
+    //public virtual ICollection<Bookmark>? Bookmarks { get; set; } 
 }

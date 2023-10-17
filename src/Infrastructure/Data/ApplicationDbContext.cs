@@ -25,23 +25,23 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IApplica
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
 
-        builder.Entity<Bookmark>()
-            .HasMany(b => b.Articles)
-            .WithOne(a => a.Bookmark)
-            .HasForeignKey(b => b.BookmarkId);
-            //.OnDelete(DeleteBehavior.NoAction);
+        //builder.Entity<Bookmark>()
+        //    .HasMany(b => b.Articles)
+        //    .WithOne(a => a.Bookmark)
+        //    .HasForeignKey(b => b.BookmarkId);
+        //    //.OnDelete(DeleteBehavior.NoAction);
 
-        //builder.Entity<Article>()
-        //    .HasOne(a => a.Bookmark)
-        //    .WithMany(b => b.Articles)
-        //    .HasForeignKey(a => a.BookmarkId)
+        ////builder.Entity<Article>()
+        ////    .HasOne(a => a.Bookmark)
+        ////    .WithMany(b => b.Articles)
+        ////    .HasForeignKey(a => a.BookmarkId)
+        ////    .OnDelete(DeleteBehavior.NoAction);
+
+
+        //builder.Entity<Bookmark>()
+        //    .HasOne(b => b.Writer)
+        //    .WithOne(w => w.Bookmark)
         //    .OnDelete(DeleteBehavior.NoAction);
-
-
-        builder.Entity<Bookmark>()
-            .HasOne(b => b.Writer)
-            .WithOne(w => w.Bookmark)
-            .OnDelete(DeleteBehavior.NoAction);
 
         base.OnModelCreating(builder);
     }
