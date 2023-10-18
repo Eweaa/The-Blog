@@ -16,7 +16,7 @@ export class ArticleComponent {
     //console.log("test", test);
     this.service.getArticle(parseInt(Id[1])).subscribe(res => {
       this.Article = res;
-      console.log(`res is ${res}`);
+      console.log(`res is ${this.Article}`);
     })
   }
 }

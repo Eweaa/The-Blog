@@ -3,9 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
 import { ModalModule } from 'ngx-bootstrap/modal';
-
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
@@ -23,7 +21,8 @@ import { ArticleComponent } from './Pages/article/article.component';
     HomeComponent,
     ProfileComponent,
     ArticleComponent,
-    HomeCardComponent
+    HomeCardComponent,
+    BookmarksComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

@@ -14,7 +14,7 @@ public class GetArticleQueryHandler : IRequestHandler<GetArticleQuery, ArticleDt
     }
     public async Task<ArticleDto> Handle(GetArticleQuery request, CancellationToken cancellationToken)
     {
-        var article = await _context.Articles.Where(a => a.Id == request.Id).FirstOrDefaultAsync();
+        var article = await _context.Articles.Where(a => a.Id == request.Id).Include(a => a.Writer).FirstOrDefaultAsync();
         var articleVM = _mapper.Map<ArticleDto>(article);
         return articleVM!;
     }

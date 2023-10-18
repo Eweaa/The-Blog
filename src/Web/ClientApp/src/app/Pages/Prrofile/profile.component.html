@@ -3,9 +3,11 @@
     <h1>{{data.name}}</h1>
     <div ngClass="Backdrop" [hidden]="!newPost" (click)="toggleNewPost()"></div>
     <div ngClass="NewPost p-2" [ngStyle]="{transform: newPost ? 'translateY(0)' : 'translateY(-100vh)'}">
-      <input name='title' type="text" placeholder='Title' ngClass='p-2 my-1' onChange={getValues} />
-      <textarea name='content' value={sendDataValues.content} cols="30" rows="10" placeholder='Text' ngClass='p-2 mt-1' onChange={getValues}></textarea>
-      <button onClick={addPostHandler}>Submit</button>
+      <input id="WriterId" type="text" placeholder='Writer Id' ngClass='p-2 my-1' />
+      <input id="ArticleImg" type="text" placeholder='Article Image' ngClass='p-2 my-1' />
+      <input id="Title" type="text" placeholder='Title' ngClass='p-2 my-1' />
+      <textarea id="Content" name='content' cols="30" rows="10" placeholder='Text' ngClass='p-2 mt-1'></textarea>
+      <button (click)="CreateArticle()">Submit</button>
     </div>
   </div>
   <button ngClass="NewPostButton" (click)="toggleNewPost()">

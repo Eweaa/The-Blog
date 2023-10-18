@@ -7,7 +7,6 @@ public class Bookmark
     [ForeignKey(nameof(WriterId))]
     public virtual Writer? Writer { get; set; }
     public int? WriterId { get; set; }
-    //  public ICollection<Article>? Articles { get; set; }
     [ForeignKey(nameof(ArticleId))]
     public virtual Article? Article { get; set; }
    

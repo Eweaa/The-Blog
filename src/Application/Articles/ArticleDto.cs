@@ -9,6 +9,8 @@ public class ArticleDto
     public string? Date { get; set; }
     public string? WriterName { get; set; }
     public int WriterId { get; set; }
+    public string? WriterImg { get; set; }
+    public string? ArticleImg { get; set; }
     private class Mapping : Profile
     {
         public Mapping()

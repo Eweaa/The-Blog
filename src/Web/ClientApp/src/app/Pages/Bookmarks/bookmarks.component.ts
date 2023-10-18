@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ArticlesClient } from '../../web-api-client';
+import { ArticleDto, ArticlesClient } from '../../web-api-client';
 
 @Component({
   selector: 'app-bookmarks',
@@ -9,9 +9,11 @@ import { ArticlesClient } from '../../web-api-client';
 export class BookmarksComponent {
   constructor(private service: ArticlesClient) { }
 
+  data: Array<any> = [];
   ngOnInit() {
     this.service.getBookmarkArticles(1).subscribe(res => {
-      console.table(res);
+      this.data = res;
+      console.log(this.data)
     })
   }
 

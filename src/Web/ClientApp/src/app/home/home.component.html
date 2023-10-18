@@ -12,7 +12,7 @@
         <div ngClass="HomeCardHeader">
 
           <a routerLink="/profile/{{a.writerId}}">
-            <!-- <img *ngIf="a.writerImg != null else Gene" src={{a.writerImg}} /> -->
+            <img *ngIf="a.writerImg != null else Gene" src={{a.writerImg}} />
             <ng-template #Gene>
               <img src="../../../assets/GenericUser.png" alt={{a.writerName}} />
               {{a.writerName}}
@@ -31,7 +31,7 @@
             <h3>{{a.title}}</h3>
             <p style="word-break: break-word;">{{a.content | slice:0:300}}...</p>
           </div>
-          <!--<img src={{a.articleImg}} alt={{a.writerName}} />-->
+          <img src={{a.articleImg}} alt={{a.writerName}} />
         </a>
 
         <div ngClass="Tools mt-3">

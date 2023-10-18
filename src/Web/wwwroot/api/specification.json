@@ -27,6 +27,65 @@
             }
           }
         }
+      },
+      "post": {
+        "tags": [
+          "Articles"
+        ],
+        "operationId": "CreateArticle",
+        "parameters": [
+          {
+            "name": "Title",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "content",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
+          },
+          {
+            "name": "ArticleImg",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 3
+          },
+          {
+            "name": "WriterId",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 4
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/api/Articles/{Id}": {
@@ -87,7 +146,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Bookmark"
+                    "$ref": "#/components/schemas/BookmarkDto"
                   }
                 }
               }
@@ -454,82 +513,26 @@
           "writerId": {
             "type": "integer",
             "format": "int32"
-          }
-        }
-      },
-      "Bookmark": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "writer": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Writer"
-              }
-            ]
-          },
-          "writerId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "article": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Article"
-              }
-            ]
-          },
-          "articleId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          }
-        }
-      },
-      "Writer": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
           },
           "writerImg": {
             "type": "string",
             "nullable": true
           },
-          "articles": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/Article"
-            }
-          },
-          "bookmarks": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/Bookmark"
-            }
+          "articleImg": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
-      "Article": {
+      "BookmarkDto": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
           "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "articleId": {
             "type": "integer",
             "format": "int32"
           },
@@ -541,58 +544,25 @@
             "type": "string",
             "nullable": true
           },
-          "date": {
-            "type": "string",
-            "format": "date-time"
-          },
           "articleImg": {
             "type": "string",
             "nullable": true
           },
-          "comments": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/Comment"
-            }
+          "date": {
+            "type": "string",
+            "nullable": true
           },
           "writerId": {
             "type": "integer",
             "format": "int32"
           },
-          "writer": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Writer"
-              }
-            ]
-          }
-        }
-      },
-      "Comment": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "content": {
+          "writerName": {
             "type": "string",
             "nullable": true
           },
-          "articleId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "article": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Article"
-              }
-            ]
+          "writerImg": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -841,6 +811,149 @@
             "maxLength": 200,
             "minLength": 1,
             "nullable": false
+          }
+        }
+      },
+      "Writer": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "writerImg": {
+            "type": "string",
+            "nullable": true
+          },
+          "articles": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/Article"
+            }
+          },
+          "bookmarks": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/Bookmark"
+            }
+          }
+        }
+      },
+      "Article": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "content": {
+            "type": "string",
+            "nullable": true
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "articleImg": {
+            "type": "string",
+            "nullable": true
+          },
+          "writerImg": {
+            "type": "string",
+            "nullable": true
+          },
+          "comments": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/Comment"
+            }
+          },
+          "writerId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "writer": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Writer"
+              }
+            ]
+          }
+        }
+      },
+      "Comment": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "content": {
+            "type": "string",
+            "nullable": true
+          },
+          "articleId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "article": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Article"
+              }
+            ]
+          }
+        }
+      },
+      "Bookmark": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "writer": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Writer"
+              }
+            ]
+          },
+          "writerId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "article": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/Article"
+              }
+            ]
+          },
+          "articleId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
           }
         }
       }

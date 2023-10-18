@@ -1,4 +1,5 @@
 ﻿using BlogApp.Application.Articles;
+using BlogApp.Application.Articles.Commands;
 using BlogApp.Application.Articles.Queries;
 using BlogApp.Domain.Entities;
 
@@ -12,7 +13,8 @@ public class Articles : EndpointGroupBase
             //.RequireAuthorization()
             .MapGet(GetArticles)
             .MapGet(GetArticle, "{Id}")
-            .MapGet(GetBookmarkArticles, "bookmark/{Id}");
+            .MapGet(GetBookmarkArticles, "bookmark/{Id}")
+            .MapPost(CreateArticle);
     }
     public async Task<List<ArticleDto>> GetArticles(ISender sender,[AsParameters] GetArticleListQuery query)
     {
@@ -24,8 +26,13 @@ public class Articles : EndpointGroupBase
         return await sender.Send(query);
     }
     
-    public async Task<List<Bookmark>> GetBookmarkArticles(ISender sender, [AsParameters] GetBookmarkArticleListQuery query)
+    public async Task<List<BookmarkDto>> GetBookmarkArticles(ISender sender, [AsParameters] GetBookmarkArticleListQuery query)
     {
         return await sender.Send(query);
+    }
+
+    public async Task<int> CreateArticle(ISender sender, [AsParameters] CreateArticleCommand command)
+    {
+        return await sender.Send(command);
     }
 }
