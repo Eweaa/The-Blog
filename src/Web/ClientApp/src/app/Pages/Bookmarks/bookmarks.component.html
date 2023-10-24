@@ -20,15 +20,17 @@
         </div>
 
         <a routerLink="/article/{{a.articleId}}" ngClass="HomeCardBody mt-3">
-          <div>
+          <div class="imgContainer">
+            <img src={{a.articleImg}} alt={{a.writerName}} />
+          </div>
+          <div class="content">
             <h3>{{a.title}}</h3>
             <p style="word-break: break-word;">{{a.content | slice:0:300}}...</p>
           </div>
-          <img src={{a.articleImg}} alt={{a.writerName}} />
         </a>
 
-        <!-- <div ngClass="Tools mt-3">
-          <button (click)="bookmark(a)">
+        <div ngClass="Tools mt-3">
+          <button (click)="unBookmark(a)">
             <svg *ngIf="a.isBookmarked else showThis" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-bookmark-fill" viewBox="0 0 16 16">
               <path d="M2 2v13.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z" />
             </svg>
@@ -38,7 +40,7 @@
               </svg>
             </ng-template>
           </button>
-        </div> -->
+        </div>
 
       </div>
 </div>

@@ -21,7 +21,7 @@ public class BookmarkDto
                 .AfterMap((src, dest) => dest.Content = src.Article?.Content)
                 .AfterMap((src, dest) => dest.ArticleImg = src.Article?.ArticleImg)
                 .AfterMap((src, dest) => dest.Date = src.Article?.Date.ToString("MM/dd/yyyy"))
-                .AfterMap((src, dest) => dest.WriterName = src.Writer?.Name)
+                .AfterMap((src, dest) => dest.WriterName = src.Article?.Writer?.Name)
                 .AfterMap((src, dest) => dest.WriterImg = src.Writer?.WriterImg);
         }
     }

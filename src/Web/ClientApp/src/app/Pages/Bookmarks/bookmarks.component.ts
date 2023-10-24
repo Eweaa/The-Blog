@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ArticleDto, ArticlesClient } from '../../web-api-client';
+import { ArticleDto, ArticlesClient, Bookmark, BookmarkDto } from '../../web-api-client';
 
 @Component({
   selector: 'app-bookmarks',
@@ -9,12 +9,28 @@ import { ArticleDto, ArticlesClient } from '../../web-api-client';
 export class BookmarksComponent {
   constructor(private service: ArticlesClient) { }
 
-  data: Array<any> = [];
+  data: Array<BookmarkB> = [];
   ngOnInit() {
     this.service.getBookmarkArticles(1).subscribe(res => {
-      this.data = res;
+      // this.data = [];
+
+      for (var i = 0; i < res.length; i++) {
+        var obj = JSON.parse(JSON.stringify(res[i])) 
+        obj.isBookmarked = true;
+        this.data.push(obj)
+      }
+
       console.log(this.data)
     })
   }
 
+  unBookmark = (b: BookmarkB) => {
+    console.log('unbookmarked');
+    b.isBookmarked = false;
+  } 
+}
+
+
+interface BookmarkB extends BookmarkDto {
+  isBookmarked?: boolean;
 }
