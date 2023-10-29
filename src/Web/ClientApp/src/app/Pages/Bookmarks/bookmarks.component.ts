@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ArticleDto, ArticlesClient, Bookmark, BookmarkDto } from '../../web-api-client';
+import { ArticleDto, ArticlesClient, Bookmark, BookmarkDto, BookmarksClient } from '../../web-api-client';
 
 @Component({
   selector: 'app-bookmarks',
@@ -7,7 +7,7 @@ import { ArticleDto, ArticlesClient, Bookmark, BookmarkDto } from '../../web-api
   styleUrls: ['./bookmarks.component.scss']
 })
 export class BookmarksComponent {
-  constructor(private service: ArticlesClient) { }
+  constructor(private service: ArticlesClient, private bookmarkService: BookmarksClient) { }
 
   data: Array<BookmarkB> = [];
   ngOnInit() {
@@ -26,6 +26,7 @@ export class BookmarksComponent {
 
   unBookmark = (b: BookmarkB) => {
     console.log('unbookmarked');
+    this.bookmarkService.removeBookmark(b.id);
     b.isBookmarked = false;
   } 
 }

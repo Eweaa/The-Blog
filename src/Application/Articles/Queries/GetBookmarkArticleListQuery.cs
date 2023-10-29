@@ -1,5 +1,4 @@
 ﻿using BlogApp.Application.Common.Interfaces;
-using BlogApp.Domain.Entities;
 
 namespace BlogApp.Application.Articles.Queries;
 public record GetBookmarkArticleListQuery(int Id) : IRequest<List<BookmarkDto>>;

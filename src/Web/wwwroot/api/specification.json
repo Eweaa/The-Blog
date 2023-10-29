@@ -198,6 +198,31 @@
         }
       }
     },
+    "/api/Bookmarks/{Id}": {
+      "delete": {
+        "tags": [
+          "Bookmarks"
+        ],
+        "operationId": "RemoveBookmark",
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
     "/api/TodoItems": {
       "get": {
         "tags": [
