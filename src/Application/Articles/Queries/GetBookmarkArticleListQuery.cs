@@ -15,7 +15,7 @@ public class GetBookmarkArticleListQueryHandler : IRequestHandler<GetBookmarkArt
     {
         var Bookmarks = await _context.Bookmarks
             .Where(b => b.WriterId == request.Id)
-            .Include(b => b.Article)
+            .Include(b => b.Article!.Writer)
             .Include(b => b.Writer)
             .ToListAsync();
 

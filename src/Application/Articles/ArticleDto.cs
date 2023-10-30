@@ -17,6 +17,7 @@ public class ArticleDto
         {
             CreateMap<Article, ArticleDto>()
                 .AfterMap((src, dest) => dest.WriterName = src.Writer!.Name)
+                .AfterMap((src, dest) => dest.WriterImg = src.Writer!.WriterImg)
                 .AfterMap((src, dest) => dest.Date = src.Date.ToString("MM/dd/yyyy"))
                 .AfterMap((src, dest) => dest.WriterId = src.WriterId);
         }

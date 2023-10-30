@@ -1,3 +1,18 @@
+header{
+  width: 100%;
+  display: flex;
+  color: white;
+  div{
+    width: 50%;
+  }
+  img{
+    width: 80%;
+    aspect-ratio: 1 / 1 ;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+}
+
 .NewPostButtonLight {
   background-color: #fafafa;
   height: 50px;

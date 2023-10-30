@@ -1,4 +1,5 @@
 ﻿using BlogApp.Application.Bookmarks;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace BlogApp.Web.Endpoints;
 

@@ -1,6 +1,20 @@
 <div ngClass="mt-4">
   <div>
-    <h1>{{data.name}}</h1>
+
+    <header>
+      <div>
+        <img *ngIf="data.writerImg == null else img" src="../../../assets/GenericUser.png"> 
+        <ng-template #img>
+          <img src={{data.writerImg}}/>
+        </ng-template>
+      </div>
+
+      <div>
+        <h1>{{data.name}}</h1>
+        <p>Garry Kasparov is a former world chess champion, a political activist, and a writer. He was born in Baku, Azerbaijan, in the Soviet Union in 1963. He showed a prodigious talent for chess from an early age, and became the youngest world chess champion in history at the age of 22 in 1985, when he defeated Anatoly Karpov1. He defended his title five times, until he lost it to Vladimir Kramnik in 20002. He retired from professional chess in 2005, and became one of the most prominent voices of opposition to Vladimir Putin’s regime in Russia3. He founded the United Civil Front, a pro-democracy movement, and ran for the presidency of Russia in 2008, but withdrew due to lack of support and harassment from the authorities4. He also became an outspoken critic of the role of artificial intelligence and technology in society, after his famous matches against IBM’s supercomputer Deep Blue in 1996 and 1997, which he lost. He has written several books on chess, politics, and history, such as My Great Predecessors, Modern Chess, Winter Is Coming, and Deep Thinking. He is currently the chairman of the Human Rights Foundation, an organization that promotes human rights and democracy around the world. He is also a global ambassador for chess education and a frequent speaker on various topics. He holds Croatian citizenship since 2014, and lives in New York with his wife and children.</p>
+      </div>
+    </header>
+
     <div ngClass="Backdrop" [hidden]="!newPost" (click)="toggleNewPost()"></div>
     <div ngClass="NewPost p-2" [ngStyle]="{transform: newPost ? 'translateY(0)' : 'translateY(-100vh)'}">
       <input id="WriterId" type="text" placeholder='Writer Id' ngClass='p-2 my-1' />

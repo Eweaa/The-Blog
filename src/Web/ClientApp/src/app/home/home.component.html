@@ -12,18 +12,23 @@
         <div ngClass="HomeCardHeader">
 
           <a routerLink="/profile/{{a.writerId}}">
-            <img *ngIf="a.writerImg != null else Gene" src={{a.writerImg}} />
+
+            <div *ngIf="a.writerImg != null else Gene" style="display: inline;">
+              <img src={{a.writerImg}} />
+              {{a.writerName}}
+            </div>
+
             <ng-template #Gene>
               <img src="../../../assets/GenericUser.png" alt={{a.writerName}} />
               {{a.writerName}}
             </ng-template>
+
           </a>
-
-
 
           <div ngClass="mx-2" style="display: inline-block;">
             {{a.date}}
           </div>
+
         </div>
 
         <a routerLink="/article/{{a.id}}" ngClass="HomeCardBody mt-3">
