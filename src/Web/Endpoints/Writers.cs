@@ -10,7 +10,7 @@ public class Writers : EndpointGroupBase
         app.MapGroup(this)
             .MapGet(GetWriter, "{Id}");
     }
-    public async Task<Writer> GetWriter(ISender sender, [AsParameters] GetWriterQuery query)
+    public async Task<WriterDto> GetWriter(ISender sender, [AsParameters] GetWriterQuery query)
     {
         return await sender.Send(query);
     }

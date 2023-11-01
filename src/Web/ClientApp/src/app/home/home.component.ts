@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ArticleDto, ArticlesClient } from '../web-api-client';
+import { ArticleDto, ArticlesClient, BookmarksClient } from '../web-api-client';
 
 @Component({
   selector: 'app-home',
@@ -8,9 +8,9 @@ import { ArticleDto, ArticlesClient } from '../web-api-client';
 })
 export class HomeComponent {
   data: articleb[];
-  constructor(private service: ArticlesClient) { }
+  constructor(private articleService: ArticlesClient, private bookmarkService: BookmarksClient) { }
   ngOnInit() {
-    this.service.getArticles().subscribe(res => {
+    this.articleService.getArticles().subscribe(res => {
       this.data = [];
        
       for (var i = 0; i < res.length; i++) {
@@ -24,6 +24,7 @@ export class HomeComponent {
    
   bookmark = (a: articleb) => {
     a.isBookmarked = !a.isBookmarked;
+    this.bookmarkService.addBookmark(a.id, a.writerId).subscribe();
   }
 
   GenericUser: string = "../../../assets/GenericUser.png";

@@ -13,6 +13,66 @@ header{
   }
 }
 
+.HomeCard {
+  // border-bottom: 1px solid grey;
+  width: 100%;
+  color: white;
+  border-radius: 10px;
+  transition: all ease-in-out 0.5s;
+  .HomeCardHeader {
+    a {
+      text-decoration: none;
+      color: white;
+    }
+
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 5px;
+    }
+  }
+
+  .HomeCardBody {
+    display: flex;
+    // justify-content: space-between;
+    color: white;
+    text-decoration: none;
+
+    .imgContainer{
+      width: 20%;
+      min-width: 250px;
+      height: 250px;
+      margin-right: 2em;
+      img{
+        width: 250px;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .content{
+      width: 60%;
+      h3 {
+        text-transform: capitalize;
+      }
+    }
+
+
+    img {
+      width: 20%;
+      height: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+  }
+  &:hover{
+    outline: 1px solid white;
+  }
+}
+
+
 .NewPostButtonLight {
   background-color: #fafafa;
   height: 50px;

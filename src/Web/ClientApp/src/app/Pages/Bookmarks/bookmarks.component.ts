@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ArticleDto, ArticlesClient, Bookmark, BookmarkDto, BookmarksClient } from '../../web-api-client';
+import { ArticleDto, ArticlesClient, BookmarkDto, BookmarksClient } from '../../web-api-client';
 
 @Component({
   selector: 'app-bookmarks',
