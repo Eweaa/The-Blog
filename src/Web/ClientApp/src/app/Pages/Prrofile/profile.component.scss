@@ -1,7 +1,7 @@
 header{
   width: 100%;
   display: flex;
-  color: white;
+  color: inherit;
   div{
     width: 50%;
   }
@@ -16,13 +16,13 @@ header{
 .HomeCard {
   // border-bottom: 1px solid grey;
   width: 100%;
-  color: white;
+  color: inherit;
   border-radius: 10px;
   transition: all ease-in-out 0.5s;
   .HomeCardHeader {
     a {
       text-decoration: none;
-      color: white;
+      color: inherit;
     }
 
     img {
@@ -37,7 +37,7 @@ header{
   .HomeCardBody {
     display: flex;
     // justify-content: space-between;
-    color: white;
+    color: inherit;
     text-decoration: none;
 
     .imgContainer{
@@ -68,19 +68,19 @@ header{
     }
   }
   &:hover{
-    outline: 1px solid white;
+    outline: 1px solid inherit;
   }
 }
 
 
 .NewPostButtonLight {
-  background-color: #fafafa;
+  background-color: inherit;
   height: 50px;
   width: 50px;
   border-radius: 50%;
   text-align: center;
   // border: 1px solid #111111;
-  color: #111111;
+  color: inherit;
   position: fixed;
   bottom: 10px;
   right: 10px;
@@ -92,7 +92,7 @@ header{
   left: 10%;
   top: 10%;
   width: 80%;
-  background-color: #fafafa;
+  background-color: inherit;
   transition: all 0.5s ease-in-out;
 
   input {
@@ -100,20 +100,20 @@ header{
     display: block;
     background-color: transparent;
     border: 1px solid grey;
-    color: #111111;
+    color: inherit;
     border-radius: 5px;
   }
 
   textarea {
     background-color: transparent;
     border-radius: 5px;
-    color: #111111;
+    color: inherit;
     resize: none;
     width: 100%;
   }
 
   button {
-    background-color: #111111;
+    background-color: inherit;
     border: none;
     border-radius: 50px;
     font-weight: bold;
@@ -123,13 +123,13 @@ header{
 
 .NewPost {
   // display: none;
-  // background-color: grey;
+  // background-color: red;
   position: fixed;
   z-index: 100;
   left: 10%;
   top: 10%;
   width: 80%;
-  background-color: #111111;
+  background-color: grey;
   transition: all 0.5s ease-in-out;
 
   input {
@@ -137,20 +137,20 @@ header{
     display: block;
     background-color: transparent;
     border: 1px solid grey;
-    color: #fafafa;
+    color: inherit;
     border-radius: 5px;
   }
 
   textarea {
     background-color: transparent;
     border-radius: 5px;
-    color: white;
+    color: inherit;
     resize: none;
     width: 100%;
   }
 
   button {
-    background-color: white;
+    background-color: inherit;
     border: none;
     border-radius: 50px;
     font-weight: bold;
@@ -158,13 +158,13 @@ header{
 }
 
 .NewPostButton {
-  background-color: #111111;
+  background-color: inherit;
   height: 50px;
   width: 50px;
   border-radius: 50%;
   text-align: center;
   border: none;
-  color: white;
+  color: inherit;
   position: fixed;
   bottom: 10px;
   right: 10px;

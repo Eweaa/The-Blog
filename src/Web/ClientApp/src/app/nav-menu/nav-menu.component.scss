@@ -37,10 +37,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  color: inherit;
   h1 {
     a {
-      color: white;
+      color: inherit;
       font-family: 'Lobster', cursive;
       text-decoration: none;
     }

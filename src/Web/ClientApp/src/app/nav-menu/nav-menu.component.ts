@@ -11,8 +11,18 @@ export class NavMenuComponent {
 
   dark: boolean = true;
 
+  body = document.getElementById('Body');
+
   toggleTheme = () => {
     this.dark = !this.dark;
+    if(this.body.classList.contains('dark')){
+      this.body.classList.remove('dark');
+      this.body.classList.add('light')
+    }
+    else{
+      this.body.classList.remove('light');
+      this.body.classList.add('dark')
+    }
   }
 
   showDrop = () => {

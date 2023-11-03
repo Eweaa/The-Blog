@@ -355,10 +355,8 @@ export class BookmarksClient implements IBookmarksClient {
         })).pipe(_observableCatch((response_: any) => {
             if (response_ instanceof HttpResponseBase) {
                 try {
-                    console.log('try block')
                     return this.processRemoveBookmark(response_ as any);
                 } catch (e) {
-                    console.log('catch block')
                     return _observableThrow(e) as any as Observable<void>;
                 }
             } else
