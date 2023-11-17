@@ -1,4 +1,4 @@
-﻿namespace BlogApp.Application.TodoItems.Commands.CreateTodoItem;
+﻿namespace The_Blog.Application.TodoItems.Commands.CreateTodoItem;
 
 public class CreateTodoItemCommandValidator : AbstractValidator<CreateTodoItemCommand>
 {

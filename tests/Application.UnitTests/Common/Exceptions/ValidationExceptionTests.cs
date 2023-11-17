@@ -1,9 +1,9 @@
-﻿using BlogApp.Application.Common.Exceptions;
+﻿using The_Blog.Application.Common.Exceptions;
 using FluentAssertions;
 using FluentValidation.Results;
 using NUnit.Framework;
 
-namespace BlogApp.Application.UnitTests.Common.Exceptions;
+namespace The_Blog.Application.UnitTests.Common.Exceptions;
 
 public class ValidationExceptionTests
 {

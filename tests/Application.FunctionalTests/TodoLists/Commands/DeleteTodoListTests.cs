@@ -1,8 +1,8 @@
-﻿using BlogApp.Application.TodoLists.Commands.CreateTodoList;
-using BlogApp.Application.TodoLists.Commands.DeleteTodoList;
-using BlogApp.Domain.Entities;
+﻿using The_Blog.Application.TodoLists.Commands.CreateTodoList;
+using The_Blog.Application.TodoLists.Commands.DeleteTodoList;
+using The_Blog.Domain.Entities;
 
-namespace BlogApp.Application.FunctionalTests.TodoLists.Commands;
+namespace The_Blog.Application.FunctionalTests.TodoLists.Commands;
 
 using static Testing;
 

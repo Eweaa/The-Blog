@@ -1,8 +1,8 @@
-﻿using BlogApp.Application.Common.Interfaces;
-using BlogApp.Application.Common.Security;
-using BlogApp.Domain.Constants;
+﻿using The_Blog.Application.Common.Interfaces;
+using The_Blog.Application.Common.Security;
+using The_Blog.Domain.Constants;
 
-namespace BlogApp.Application.TodoLists.Commands.PurgeTodoLists;
+namespace The_Blog.Application.TodoLists.Commands.PurgeTodoLists;
 
 [Authorize(Roles = Roles.Administrator)]
 [Authorize(Policy = Policies.CanPurge)]

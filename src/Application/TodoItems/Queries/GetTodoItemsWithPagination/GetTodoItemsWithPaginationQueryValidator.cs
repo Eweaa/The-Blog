@@ -1,4 +1,4 @@
-﻿namespace BlogApp.Application.TodoItems.Queries.GetTodoItemsWithPagination;
+﻿namespace The_Blog.Application.TodoItems.Queries.GetTodoItemsWithPagination;
 
 public class GetTodoItemsWithPaginationQueryValidator : AbstractValidator<GetTodoItemsWithPaginationQuery>
 {

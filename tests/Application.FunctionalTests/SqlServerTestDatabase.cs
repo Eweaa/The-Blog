@@ -1,11 +1,11 @@
 ﻿using System.Data.Common;
-using BlogApp.Infrastructure.Data;
+using The_Blog.Infrastructure.Data;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Respawn;
 
-namespace BlogApp.Application.FunctionalTests;
+namespace The_Blog.Application.FunctionalTests;
 
 public class SqlServerTestDatabase : ITestDatabase
 {

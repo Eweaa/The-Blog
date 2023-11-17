@@ -1,7 +1,7 @@
 ﻿using Azure.Identity;
-using BlogApp.Application.Common.Interfaces;
-using BlogApp.Infrastructure.Data;
-using BlogApp.Web.Services;
+using The_Blog.Application.Common.Interfaces;
+using The_Blog.Infrastructure.Data;
+using The_Blog.Web.Services;
 using Microsoft.AspNetCore.Mvc;
 
 using ZymLabs.NSwag.FluentValidation;
@@ -41,13 +41,14 @@ public static class DependencyInjection
 
         services.AddOpenApiDocument((configure, sp) =>
         {
-            configure.Title = "BlogApp API";
+            configure.Title = "The_Blog API";
 
             // Add the fluent validations schema processor
             var fluentValidationSchemaProcessor = 
                 sp.CreateScope().ServiceProvider.GetRequiredService<FluentValidationSchemaProcessor>();
 
-            configure.SchemaProcessors.Add(fluentValidationSchemaProcessor);
+            // BUG: SchemaProcessors is missing in NSwag 14 (https://github.com/RicoSuter/NSwag/issues/4524#issuecomment-1811897079)
+            // configure.SchemaProcessors.Add(fluentValidationSchemaProcessor);
 
         });
 

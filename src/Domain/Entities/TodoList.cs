@@ -1,4 +1,4 @@
-﻿namespace BlogApp.Domain.Entities;
+﻿namespace The_Blog.Domain.Entities;
 
 public class TodoList : BaseAuditableEntity
 {

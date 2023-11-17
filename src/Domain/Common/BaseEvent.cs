@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-namespace BlogApp.Domain.Common;
+namespace The_Blog.Domain.Common;
 
 public abstract class BaseEvent : INotification
 {

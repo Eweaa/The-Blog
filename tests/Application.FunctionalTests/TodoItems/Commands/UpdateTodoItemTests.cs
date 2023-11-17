@@ -1,9 +1,9 @@
-﻿using BlogApp.Application.TodoItems.Commands.CreateTodoItem;
-using BlogApp.Application.TodoItems.Commands.UpdateTodoItem;
-using BlogApp.Application.TodoLists.Commands.CreateTodoList;
-using BlogApp.Domain.Entities;
+﻿using The_Blog.Application.TodoItems.Commands.CreateTodoItem;
+using The_Blog.Application.TodoItems.Commands.UpdateTodoItem;
+using The_Blog.Application.TodoLists.Commands.CreateTodoList;
+using The_Blog.Domain.Entities;
 
-namespace BlogApp.Application.FunctionalTests.TodoItems.Commands;
+namespace The_Blog.Application.FunctionalTests.TodoItems.Commands;
 
 using static Testing;
 

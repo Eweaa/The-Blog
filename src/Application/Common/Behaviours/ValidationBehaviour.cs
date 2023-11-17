@@ -1,6 +1,6 @@
-﻿using ValidationException = BlogApp.Application.Common.Exceptions.ValidationException;
+﻿using ValidationException = The_Blog.Application.Common.Exceptions.ValidationException;
 
-namespace BlogApp.Application.Common.Behaviours;
+namespace The_Blog.Application.Common.Behaviours;
 
 public class ValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
      where TRequest : notnull

@@ -1,4 +1,4 @@
-﻿namespace BlogApp.Application.Common.Models;
+﻿namespace The_Blog.Application.Common.Models;
 
 public class PaginatedList<T>
 {

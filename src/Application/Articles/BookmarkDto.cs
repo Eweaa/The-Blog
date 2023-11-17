@@ -1,6 +1,6 @@
-﻿using BlogApp.Domain.Entities;
+﻿using The_Blog.Domain.Entities;
 
-namespace BlogApp.Application.Articles;
+namespace The_Blog.Application.Articles;
 public class BookmarkDto
 {
     public int Id { get; set; }
@@ -14,7 +14,7 @@ public class BookmarkDto
     public string? WriterImg { get; set; }
     private class Mapping : Profile
     {
-        public Mapping() 
+        public Mapping()
         {
             CreateMap<Bookmark, BookmarkDto>()
                 .AfterMap((src, dest) => dest.Title = src.Article?.Title)

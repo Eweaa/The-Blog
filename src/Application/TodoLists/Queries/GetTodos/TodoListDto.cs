@@ -1,6 +1,6 @@
-﻿using BlogApp.Domain.Entities;
+﻿using The_Blog.Domain.Entities;
 
-namespace BlogApp.Application.TodoLists.Queries.GetTodos;
+namespace The_Blog.Application.TodoLists.Queries.GetTodos;
 
 public class TodoListDto
 {

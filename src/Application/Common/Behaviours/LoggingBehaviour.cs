@@ -1,8 +1,8 @@
-﻿using BlogApp.Application.Common.Interfaces;
+﻿using The_Blog.Application.Common.Interfaces;
 using MediatR.Pipeline;
 using Microsoft.Extensions.Logging;
 
-namespace BlogApp.Application.Common.Behaviours;
+namespace The_Blog.Application.Common.Behaviours;
 
 public class LoggingBehaviour<TRequest> : IRequestPreProcessor<TRequest> where TRequest : notnull
 {
@@ -28,7 +28,7 @@ public class LoggingBehaviour<TRequest> : IRequestPreProcessor<TRequest> where T
             userName = await _identityService.GetUserNameAsync(userId);
         }
 
-        _logger.LogInformation("BlogApp Request: {Name} {@UserId} {@UserName} {@Request}",
+        _logger.LogInformation("The_Blog Request: {Name} {@UserId} {@UserName} {@Request}",
             requestName, userId, userName, request);
     }
 }

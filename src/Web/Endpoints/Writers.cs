@@ -1,7 +1,6 @@
-﻿using BlogApp.Application.Writers;
-using BlogApp.Domain.Entities;
+﻿using The_Blog.Application.Writers;
 
-namespace BlogApp.Web.Endpoints;
+namespace The_Blog.Web.Endpoints;
 
 public class Writers : EndpointGroupBase
 {

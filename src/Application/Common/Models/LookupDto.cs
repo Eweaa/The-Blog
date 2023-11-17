@@ -1,6 +1,6 @@
-﻿using BlogApp.Domain.Entities;
+﻿using The_Blog.Domain.Entities;
 
-namespace BlogApp.Application.Common.Models;
+namespace The_Blog.Application.Common.Models;
 
 public class LookupDto
 {

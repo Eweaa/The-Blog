@@ -1,6 +1,6 @@
-﻿global using BlogApp.Domain.Common;
-global using BlogApp.Domain.Entities;
-global using BlogApp.Domain.Enums;
-global using BlogApp.Domain.Events;
-global using BlogApp.Domain.Exceptions;
-global using BlogApp.Domain.ValueObjects;
+﻿global using The_Blog.Domain.Common;
+global using The_Blog.Domain.Entities;
+global using The_Blog.Domain.Enums;
+global using The_Blog.Domain.Events;
+global using The_Blog.Domain.Exceptions;
+global using The_Blog.Domain.ValueObjects;

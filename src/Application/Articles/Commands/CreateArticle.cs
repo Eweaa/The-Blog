@@ -1,7 +1,7 @@
-﻿using BlogApp.Application.Common.Interfaces;
-using BlogApp.Domain.Entities;
+﻿using The_Blog.Application.Common.Interfaces;
+using The_Blog.Domain.Entities;
 
-namespace BlogApp.Application.Articles.Commands;
+namespace The_Blog.Application.Articles.Commands;
 public record CreateArticleCommand : IRequest<int>
 {
     public required string Title { get; init; }
@@ -31,3 +31,4 @@ public class CreateArticleCommandHandler : IRequestHandler<CreateArticleCommand,
         return entity.Id;
     }
 }
+

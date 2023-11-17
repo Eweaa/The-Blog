@@ -1,4 +1,4 @@
-﻿namespace BlogApp.Web.AcceptanceTests.Pages;
+﻿namespace The_Blog.Web.AcceptanceTests.Pages;
 
 public class LoginPage : BasePage
 {

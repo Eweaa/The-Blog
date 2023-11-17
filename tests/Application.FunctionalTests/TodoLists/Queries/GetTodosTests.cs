@@ -1,8 +1,8 @@
-﻿using BlogApp.Application.TodoLists.Queries.GetTodos;
-using BlogApp.Domain.Entities;
-using BlogApp.Domain.ValueObjects;
+﻿using The_Blog.Application.TodoLists.Queries.GetTodos;
+using The_Blog.Domain.Entities;
+using The_Blog.Domain.ValueObjects;
 
-namespace BlogApp.Application.FunctionalTests.TodoLists.Queries;
+namespace The_Blog.Application.FunctionalTests.TodoLists.Queries;
 
 using static Testing;
 

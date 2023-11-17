@@ -1,8 +1,8 @@
-﻿using BlogApp.Application.Common.Interfaces;
-using BlogApp.Application.Common.Mappings;
-using BlogApp.Application.Common.Models;
+﻿using The_Blog.Application.Common.Interfaces;
+using The_Blog.Application.Common.Mappings;
+using The_Blog.Application.Common.Models;
 
-namespace BlogApp.Application.TodoItems.Queries.GetTodoItemsWithPagination;
+namespace The_Blog.Application.TodoItems.Queries.GetTodoItemsWithPagination;
 
 public record GetTodoItemsWithPaginationQuery : IRequest<PaginatedList<TodoItemBriefDto>>
 {

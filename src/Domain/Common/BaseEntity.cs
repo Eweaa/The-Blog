@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace BlogApp.Domain.Common;
+namespace The_Blog.Domain.Common;
 
 public abstract class BaseEntity
 {

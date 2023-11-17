@@ -1,4 +1,4 @@
-namespace BlogApp.Web.AcceptanceTests.StepDefinitions;
+namespace The_Blog.Web.AcceptanceTests.StepDefinitions;
 
 [Binding]
 public sealed class LoginStepDefinitions

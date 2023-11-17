@@ -1,6 +1,6 @@
-﻿using BlogApp.Application.Common.Models;
+﻿using The_Blog.Application.Common.Models;
 
-namespace BlogApp.Application.Common.Mappings;
+namespace The_Blog.Application.Common.Mappings;
 
 public static class MappingExtensions
 {

@@ -1,6 +1,6 @@
-﻿using BlogApp.Domain.Entities;
+﻿using The_Blog.Domain.Entities;
 
-namespace BlogApp.Application.Common.Interfaces;
+namespace The_Blog.Application.Common.Interfaces;
 
 public interface IApplicationDbContext
 {
@@ -8,7 +8,6 @@ public interface IApplicationDbContext
     DbSet<TodoItem> TodoItems { get; }
     DbSet<Writer> Writers { get; }
     DbSet<Article> Articles { get; }
-    DbSet<Comment> Comments { get; }
     DbSet<Bookmark> Bookmarks { get; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken);

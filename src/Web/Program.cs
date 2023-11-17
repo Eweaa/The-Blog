@@ -1,4 +1,4 @@
-using BlogApp.Infrastructure.Data;
+using The_Blog.Infrastructure.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

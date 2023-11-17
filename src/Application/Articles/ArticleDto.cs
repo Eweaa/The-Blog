@@ -1,6 +1,6 @@
-﻿using BlogApp.Domain.Entities;
+﻿using The_Blog.Domain.Entities;
 
-namespace BlogApp.Application.Articles;
+namespace The_Blog.Application.Articles;
 public class ArticleDto
 {
     public int Id { get; set; }

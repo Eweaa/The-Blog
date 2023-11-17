@@ -1,9 +1,9 @@
-﻿using BlogApp.Domain.Common;
+﻿using The_Blog.Domain.Common;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
-namespace BlogApp.Infrastructure.Data.Interceptors;
+namespace The_Blog.Infrastructure.Data.Interceptors;
 
 public class DispatchDomainEventsInterceptor : SaveChangesInterceptor
 {

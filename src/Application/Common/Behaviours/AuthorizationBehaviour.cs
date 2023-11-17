@@ -1,9 +1,9 @@
 ﻿using System.Reflection;
-using BlogApp.Application.Common.Exceptions;
-using BlogApp.Application.Common.Interfaces;
-using BlogApp.Application.Common.Security;
+using The_Blog.Application.Common.Exceptions;
+using The_Blog.Application.Common.Interfaces;
+using The_Blog.Application.Common.Security;
 
-namespace BlogApp.Application.Common.Behaviours;
+namespace The_Blog.Application.Common.Behaviours;
 
 public class AuthorizationBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : notnull
 {

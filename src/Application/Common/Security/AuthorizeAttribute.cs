@@ -1,4 +1,4 @@
-﻿namespace BlogApp.Application.Common.Security;
+﻿namespace The_Blog.Application.Common.Security;
 
 /// <summary>
 /// Specifies the class this attribute is applied to requires authorization.

@@ -1,7 +1,7 @@
-﻿using BlogApp.Application.Common.Interfaces;
-using BlogApp.Domain.Enums;
+﻿using The_Blog.Application.Common.Interfaces;
+using The_Blog.Domain.Enums;
 
-namespace BlogApp.Application.TodoItems.Commands.UpdateTodoItemDetail;
+namespace The_Blog.Application.TodoItems.Commands.UpdateTodoItemDetail;
 
 public record UpdateTodoItemDetailCommand : IRequest
 {

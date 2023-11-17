@@ -1,7 +1,7 @@
-﻿using BlogApp.Application.Common.Interfaces;
-using BlogApp.Domain.Entities;
+﻿using The_Blog.Application.Common.Interfaces;
+using The_Blog.Domain.Entities;
 
-namespace BlogApp.Application.Bookmarks;
+namespace The_Blog.Application.Bookmarks;
 public record AddBookmarkCommand : IRequest<int>
 {
     public int ArticleId { get; set; }

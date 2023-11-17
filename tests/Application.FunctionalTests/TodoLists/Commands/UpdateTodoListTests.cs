@@ -1,9 +1,9 @@
-﻿using BlogApp.Application.Common.Exceptions;
-using BlogApp.Application.TodoLists.Commands.CreateTodoList;
-using BlogApp.Application.TodoLists.Commands.UpdateTodoList;
-using BlogApp.Domain.Entities;
+﻿using The_Blog.Application.Common.Exceptions;
+using The_Blog.Application.TodoLists.Commands.CreateTodoList;
+using The_Blog.Application.TodoLists.Commands.UpdateTodoList;
+using The_Blog.Domain.Entities;
 
-namespace BlogApp.Application.FunctionalTests.TodoLists.Commands;
+namespace The_Blog.Application.FunctionalTests.TodoLists.Commands;
 
 using static Testing;
 

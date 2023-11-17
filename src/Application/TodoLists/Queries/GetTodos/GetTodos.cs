@@ -1,9 +1,9 @@
-﻿using BlogApp.Application.Common.Interfaces;
-using BlogApp.Application.Common.Models;
-using BlogApp.Application.Common.Security;
-using BlogApp.Domain.Enums;
+﻿using The_Blog.Application.Common.Interfaces;
+using The_Blog.Application.Common.Models;
+using The_Blog.Application.Common.Security;
+using The_Blog.Domain.Enums;
 
-namespace BlogApp.Application.TodoLists.Queries.GetTodos;
+namespace The_Blog.Application.TodoLists.Queries.GetTodos;
 
 [Authorize]
 public record GetTodosQuery : IRequest<TodosVm>;

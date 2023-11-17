@@ -1,14 +1,14 @@
 ﻿using System.Reflection;
 using System.Runtime.Serialization;
 using AutoMapper;
-using BlogApp.Application.Common.Interfaces;
-using BlogApp.Application.Common.Models;
-using BlogApp.Application.TodoItems.Queries.GetTodoItemsWithPagination;
-using BlogApp.Application.TodoLists.Queries.GetTodos;
-using BlogApp.Domain.Entities;
+using The_Blog.Application.Common.Interfaces;
+using The_Blog.Application.Common.Models;
+using The_Blog.Application.TodoItems.Queries.GetTodoItemsWithPagination;
+using The_Blog.Application.TodoLists.Queries.GetTodos;
+using The_Blog.Domain.Entities;
 using NUnit.Framework;
 
-namespace BlogApp.Application.UnitTests.Common.Mappings;
+namespace The_Blog.Application.UnitTests.Common.Mappings;
 
 public class MappingTests
 {

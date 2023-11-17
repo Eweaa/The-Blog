@@ -1,6 +1,6 @@
 ﻿using System.Data.Common;
-using BlogApp.Application.Common.Interfaces;
-using BlogApp.Infrastructure.Data;
+using The_Blog.Application.Common.Interfaces;
+using The_Blog.Infrastructure.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
-namespace BlogApp.Application.FunctionalTests;
+namespace The_Blog.Application.FunctionalTests;
 
 using static Testing;
 

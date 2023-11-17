@@ -1,7 +1,6 @@
-﻿using BlogApp.Application.Bookmarks;
-using Microsoft.AspNetCore.Http.HttpResults;
+﻿using The_Blog.Application.Bookmarks;
 
-namespace BlogApp.Web.Endpoints;
+namespace The_Blog.Web.Endpoints;
 
 public class Bookmarks : EndpointGroupBase
 {

@@ -1,7 +1,7 @@
-﻿using BlogApp.Domain.Events;
+﻿using The_Blog.Domain.Events;
 using Microsoft.Extensions.Logging;
 
-namespace BlogApp.Application.TodoItems.EventHandlers;
+namespace The_Blog.Application.TodoItems.EventHandlers;
 
 public class TodoItemCompletedEventHandler : INotificationHandler<TodoItemCompletedEvent>
 {
@@ -14,7 +14,7 @@ public class TodoItemCompletedEventHandler : INotificationHandler<TodoItemComple
 
     public Task Handle(TodoItemCompletedEvent notification, CancellationToken cancellationToken)
     {
-        _logger.LogInformation("BlogApp Domain Event: {DomainEvent}", notification.GetType().Name);
+        _logger.LogInformation("The_Blog Domain Event: {DomainEvent}", notification.GetType().Name);
 
         return Task.CompletedTask;
     }

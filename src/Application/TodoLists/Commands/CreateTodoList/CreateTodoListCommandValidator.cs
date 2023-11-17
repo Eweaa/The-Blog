@@ -1,6 +1,6 @@
-﻿using BlogApp.Application.Common.Interfaces;
+﻿using The_Blog.Application.Common.Interfaces;
 
-namespace BlogApp.Application.TodoLists.Commands.CreateTodoList;
+namespace The_Blog.Application.TodoLists.Commands.CreateTodoList;
 
 public class CreateTodoListCommandValidator : AbstractValidator<CreateTodoListCommand>
 {

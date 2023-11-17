@@ -1,4 +1,4 @@
-﻿namespace BlogApp.Domain.Events;
+﻿namespace The_Blog.Domain.Events;
 
 public class TodoItemDeletedEvent : BaseEvent
 {

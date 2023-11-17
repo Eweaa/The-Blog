@@ -1,6 +1,7 @@
-﻿using BlogApp.Application.Common.Interfaces;
+﻿using The_Blog.Application.Common.Interfaces;
+using The_Blog.Domain.Entities;
 
-namespace BlogApp.Application.Bookmarks;
+namespace The_Blog.Application.Bookmarks;
 public record RemoveBookmarkCommand(int Id) : IRequest;
 public class RemoveBookmarkCommandHandler : IRequestHandler<RemoveBookmarkCommand>
 {

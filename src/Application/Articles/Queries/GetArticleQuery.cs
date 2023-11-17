@@ -1,7 +1,6 @@
-﻿using BlogApp.Application.Common.Interfaces;
-using BlogApp.Domain.Entities;
+﻿using The_Blog.Application.Common.Interfaces;
 
-namespace BlogApp.Application.Articles.Queries;
+namespace The_Blog.Application.Articles.Queries;
 public record GetArticleQuery(int Id) : IRequest<ArticleDto>;
 public class GetArticleQueryHandler : IRequestHandler<GetArticleQuery, ArticleDto>
 {

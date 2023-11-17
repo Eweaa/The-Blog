@@ -1,7 +1,7 @@
-﻿using BlogApp.Application.Common.Interfaces;
-using BlogApp.Domain.Events;
+﻿using The_Blog.Application.Common.Interfaces;
+using The_Blog.Domain.Events;
 
-namespace BlogApp.Application.TodoItems.Commands.DeleteTodoItem;
+namespace The_Blog.Application.TodoItems.Commands.DeleteTodoItem;
 
 public record DeleteTodoItemCommand(int Id) : IRequest;
 

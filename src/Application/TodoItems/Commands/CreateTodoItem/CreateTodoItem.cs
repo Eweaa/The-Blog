@@ -1,8 +1,8 @@
-﻿using BlogApp.Application.Common.Interfaces;
-using BlogApp.Domain.Entities;
-using BlogApp.Domain.Events;
+﻿using The_Blog.Application.Common.Interfaces;
+using The_Blog.Domain.Entities;
+using The_Blog.Domain.Events;
 
-namespace BlogApp.Application.TodoItems.Commands.CreateTodoItem;
+namespace The_Blog.Application.TodoItems.Commands.CreateTodoItem;
 
 public record CreateTodoItemCommand : IRequest<int>
 {

@@ -1,7 +1,7 @@
-﻿using BlogApp.Application.Articles;
-using BlogApp.Domain.Entities;
+﻿using The_Blog.Application.Articles;
+using The_Blog.Domain.Entities;
 
-namespace BlogApp.Application.Writers;
+namespace The_Blog.Application.Writers;
 public class WriterDto
 {
     public int Id { get; set; }

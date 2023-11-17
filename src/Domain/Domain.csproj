@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <RootNamespace>BlogApp.Domain</RootNamespace>
-    <AssemblyName>BlogApp.Domain</AssemblyName>
+    <RootNamespace>The_Blog.Domain</RootNamespace>
+    <AssemblyName>The_Blog.Domain</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

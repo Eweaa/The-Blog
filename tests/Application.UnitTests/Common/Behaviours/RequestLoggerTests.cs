@@ -1,11 +1,11 @@
-﻿using BlogApp.Application.Common.Behaviours;
-using BlogApp.Application.Common.Interfaces;
-using BlogApp.Application.TodoItems.Commands.CreateTodoItem;
+﻿using The_Blog.Application.Common.Behaviours;
+using The_Blog.Application.Common.Interfaces;
+using The_Blog.Application.TodoItems.Commands.CreateTodoItem;
 using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;
 
-namespace BlogApp.Application.UnitTests.Common.Behaviours;
+namespace The_Blog.Application.UnitTests.Common.Behaviours;
 
 public class RequestLoggerTests
 {

@@ -1,4 +1,4 @@
-﻿namespace BlogApp.Domain.Entities;
+﻿namespace The_Blog.Domain.Entities;
 public class Writer
 {
     public int Id { get; set; }
@@ -7,3 +7,4 @@ public class Writer
     public ICollection<Article>? Articles { get; set; }
     public ICollection<Bookmark>? Bookmarks { get; set; }
 }
+

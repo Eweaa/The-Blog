@@ -1,7 +1,7 @@
-﻿using BlogApp.Application.Common.Interfaces;
-using BlogApp.Domain.Entities;
+﻿using The_Blog.Application.Common.Interfaces;
+using The_Blog.Domain.Entities;
 
-namespace BlogApp.Application.TodoLists.Commands.CreateTodoList;
+namespace The_Blog.Application.TodoLists.Commands.CreateTodoList;
 
 public record CreateTodoListCommand : IRequest<int>
 {

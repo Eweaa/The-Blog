@@ -1,11 +1,11 @@
-﻿using BlogApp.Application.Common.Models;
-using BlogApp.Application.TodoItems.Commands.CreateTodoItem;
-using BlogApp.Application.TodoItems.Commands.DeleteTodoItem;
-using BlogApp.Application.TodoItems.Commands.UpdateTodoItem;
-using BlogApp.Application.TodoItems.Commands.UpdateTodoItemDetail;
-using BlogApp.Application.TodoItems.Queries.GetTodoItemsWithPagination;
+﻿using The_Blog.Application.Common.Models;
+using The_Blog.Application.TodoItems.Commands.CreateTodoItem;
+using The_Blog.Application.TodoItems.Commands.DeleteTodoItem;
+using The_Blog.Application.TodoItems.Commands.UpdateTodoItem;
+using The_Blog.Application.TodoItems.Commands.UpdateTodoItemDetail;
+using The_Blog.Application.TodoItems.Queries.GetTodoItemsWithPagination;
 
-namespace BlogApp.Web.Endpoints;
+namespace The_Blog.Web.Endpoints;
 
 public class TodoItems : EndpointGroupBase
 {

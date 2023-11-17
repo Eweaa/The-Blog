@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <RootNamespace>BlogApp.Web.AcceptanceTests</RootNamespace>
-        <AssemblyName>BlogApp.Web.AcceptanceTests</AssemblyName>
+        <RootNamespace>The_Blog.Web.AcceptanceTests</RootNamespace>
+        <AssemblyName>The_Blog.Web.AcceptanceTests</AssemblyName>
     </PropertyGroup>
 
     <ItemGroup>

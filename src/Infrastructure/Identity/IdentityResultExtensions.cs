@@ -1,7 +1,7 @@
-﻿using BlogApp.Application.Common.Models;
+﻿using The_Blog.Application.Common.Models;
 using Microsoft.AspNetCore.Identity;
 
-namespace BlogApp.Infrastructure.Identity;
+namespace The_Blog.Infrastructure.Identity;
 
 public static class IdentityResultExtensions
 {

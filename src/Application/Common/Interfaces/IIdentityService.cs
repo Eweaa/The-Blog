@@ -1,6 +1,6 @@
-﻿using BlogApp.Application.Common.Models;
+﻿using The_Blog.Application.Common.Models;
 
-namespace BlogApp.Application.Common.Interfaces;
+namespace The_Blog.Application.Common.Interfaces;
 
 public interface IIdentityService
 {

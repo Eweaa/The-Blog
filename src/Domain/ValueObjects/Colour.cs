@@ -1,4 +1,4 @@
-﻿namespace BlogApp.Domain.ValueObjects;
+﻿namespace The_Blog.Domain.ValueObjects;
 
 public class Colour : ValueObject
 {

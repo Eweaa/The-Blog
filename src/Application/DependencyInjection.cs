@@ -1,5 +1,5 @@
 ﻿using System.Reflection;
-using BlogApp.Application.Common.Behaviours;
+using The_Blog.Application.Common.Behaviours;
 
 namespace Microsoft.Extensions.DependencyInjection;
 

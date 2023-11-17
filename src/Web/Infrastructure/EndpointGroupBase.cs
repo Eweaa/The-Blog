@@ -1,4 +1,4 @@
-﻿namespace BlogApp.Web.Infrastructure;
+﻿namespace The_Blog.Web.Infrastructure;
 
 public abstract class EndpointGroupBase
 {

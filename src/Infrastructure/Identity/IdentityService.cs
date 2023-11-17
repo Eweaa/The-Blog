@@ -1,10 +1,10 @@
-﻿using BlogApp.Application.Common.Interfaces;
-using BlogApp.Application.Common.Models;
+﻿using The_Blog.Application.Common.Interfaces;
+using The_Blog.Application.Common.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
-namespace BlogApp.Infrastructure.Identity;
+namespace The_Blog.Infrastructure.Identity;
 
 public class IdentityService : IIdentityService
 {

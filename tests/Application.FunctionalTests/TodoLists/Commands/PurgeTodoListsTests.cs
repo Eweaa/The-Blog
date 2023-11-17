@@ -1,10 +1,10 @@
-﻿using BlogApp.Application.Common.Exceptions;
-using BlogApp.Application.Common.Security;
-using BlogApp.Application.TodoLists.Commands.CreateTodoList;
-using BlogApp.Application.TodoLists.Commands.PurgeTodoLists;
-using BlogApp.Domain.Entities;
+﻿using The_Blog.Application.Common.Exceptions;
+using The_Blog.Application.Common.Security;
+using The_Blog.Application.TodoLists.Commands.CreateTodoList;
+using The_Blog.Application.TodoLists.Commands.PurgeTodoLists;
+using The_Blog.Domain.Entities;
 
-namespace BlogApp.Application.FunctionalTests.TodoLists.Commands;
+namespace The_Blog.Application.FunctionalTests.TodoLists.Commands;
 
 using static Testing;
 

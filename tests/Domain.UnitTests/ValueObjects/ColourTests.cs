@@ -1,9 +1,9 @@
-﻿using BlogApp.Domain.Exceptions;
-using BlogApp.Domain.ValueObjects;
+﻿using The_Blog.Domain.Exceptions;
+using The_Blog.Domain.ValueObjects;
 using FluentAssertions;
 using NUnit.Framework;
 
-namespace BlogApp.Domain.UnitTests.ValueObjects;
+namespace The_Blog.Domain.UnitTests.ValueObjects;
 
 public class ColourTests
 {

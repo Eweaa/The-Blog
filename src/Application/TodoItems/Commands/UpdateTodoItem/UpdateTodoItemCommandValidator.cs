@@ -1,4 +1,4 @@
-﻿namespace BlogApp.Application.TodoItems.Commands.UpdateTodoItem;
+﻿namespace The_Blog.Application.TodoItems.Commands.UpdateTodoItem;
 
 public class UpdateTodoItemCommandValidator : AbstractValidator<UpdateTodoItemCommand>
 {

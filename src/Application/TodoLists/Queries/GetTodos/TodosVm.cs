@@ -1,6 +1,6 @@
-﻿using BlogApp.Application.Common.Models;
+﻿using The_Blog.Application.Common.Models;
 
-namespace BlogApp.Application.TodoLists.Queries.GetTodos;
+namespace The_Blog.Application.TodoLists.Queries.GetTodos;
 
 public class TodosVm
 {

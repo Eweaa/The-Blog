@@ -1,4 +1,4 @@
-﻿namespace BlogApp.Application.FunctionalTests;
+﻿namespace The_Blog.Application.FunctionalTests;
 
 public static class TestDatabaseFactory
 {

@@ -1,7 +1,7 @@
-﻿using BlogApp.Application.Common.Interfaces;
-using BlogApp.Domain.Entities;
+﻿using The_Blog.Application.Common.Interfaces;
+using The_Blog.Domain.Entities;
 
-namespace BlogApp.Application.Articles.Queries;
+namespace The_Blog.Application.Articles.Queries;
 public record GetArticleListQuery : IRequest<List<ArticleDto>>;
 public class GetArticleListQueryHandler : IRequestHandler<GetArticleListQuery, List<ArticleDto>>
 {
@@ -15,10 +15,10 @@ public class GetArticleListQueryHandler : IRequestHandler<GetArticleListQuery, L
     public async Task<List<ArticleDto>> Handle(GetArticleListQuery request, CancellationToken cancellationToken)
     {
         var Articles = await _context.Articles.Include(a => a.Writer).ToListAsync(cancellationToken);
-        var ArticlesVM  = _mapper.Map<List<ArticleDto>>(Articles);
-        if(ArticlesVM is null)
+        var ArticlesVM = _mapper.Map<List<ArticleDto>>(Articles);
+        if (ArticlesVM is null)
         {
-            var a1 = new Article() { Title = "null"};
+            var a1 = new Article() { Title = "null" };
             var a2 = _mapper.Map<ArticleDto>(a1);
             var alist = new List<ArticleDto>();
             alist.Add(a2);

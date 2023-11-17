@@ -1,6 +1,6 @@
-﻿using BlogApp.Application.Common.Interfaces;
+﻿using The_Blog.Application.Common.Interfaces;
 
-namespace BlogApp.Application.Articles.Queries;
+namespace The_Blog.Application.Articles.Queries;
 public record GetBookmarkArticleListQuery(int Id) : IRequest<List<BookmarkDto>>;
 public class GetBookmarkArticleListQueryHandler : IRequestHandler<GetBookmarkArticleListQuery, List<BookmarkDto>>
 {

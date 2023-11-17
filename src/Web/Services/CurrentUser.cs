@@ -1,8 +1,8 @@
 ﻿using System.Security.Claims;
 
-using BlogApp.Application.Common.Interfaces;
+using The_Blog.Application.Common.Interfaces;
 
-namespace BlogApp.Web.Services;
+namespace The_Blog.Web.Services;
 
 public class CurrentUser : IUser
 {

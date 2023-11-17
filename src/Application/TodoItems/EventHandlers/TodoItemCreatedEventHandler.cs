@@ -1,7 +1,7 @@
-﻿using BlogApp.Domain.Events;
+﻿using The_Blog.Domain.Events;
 using Microsoft.Extensions.Logging;
 
-namespace BlogApp.Application.TodoItems.EventHandlers;
+namespace The_Blog.Application.TodoItems.EventHandlers;
 
 public class TodoItemCreatedEventHandler : INotificationHandler<TodoItemCreatedEvent>
 {
@@ -14,7 +14,7 @@ public class TodoItemCreatedEventHandler : INotificationHandler<TodoItemCreatedE
 
     public Task Handle(TodoItemCreatedEvent notification, CancellationToken cancellationToken)
     {
-        _logger.LogInformation("BlogApp Domain Event: {DomainEvent}", notification.GetType().Name);
+        _logger.LogInformation("The_Blog Domain Event: {DomainEvent}", notification.GetType().Name);
 
         return Task.CompletedTask;
     }

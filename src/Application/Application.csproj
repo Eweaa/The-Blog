@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <RootNamespace>BlogApp.Application</RootNamespace>
-    <AssemblyName>BlogApp.Application</AssemblyName>
+    <RootNamespace>The_Blog.Application</RootNamespace>
+    <AssemblyName>The_Blog.Application</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,11 +14,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Comments\Commands\" />
-    <Folder Include="Comments\Queries\" />
   </ItemGroup>
 
 </Project>

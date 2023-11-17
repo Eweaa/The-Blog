@@ -1,8 +1,8 @@
-﻿using BlogApp.Application.Common.Interfaces;
-using BlogApp.Domain.Constants;
-using BlogApp.Infrastructure.Data;
-using BlogApp.Infrastructure.Data.Interceptors;
-using BlogApp.Infrastructure.Identity;
+﻿using The_Blog.Application.Common.Interfaces;
+using The_Blog.Domain.Constants;
+using The_Blog.Infrastructure.Data;
+using The_Blog.Infrastructure.Data.Interceptors;
+using The_Blog.Infrastructure.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;

@@ -1,6 +1,6 @@
-﻿using BlogApp.Application.Common.Interfaces;
+﻿using The_Blog.Application.Common.Interfaces;
 
-namespace BlogApp.Application.TodoLists.Commands.DeleteTodoList;
+namespace The_Blog.Application.TodoLists.Commands.DeleteTodoList;
 
 public record DeleteTodoListCommand(int Id) : IRequest;
 

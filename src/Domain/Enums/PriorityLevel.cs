@@ -1,4 +1,4 @@
-﻿namespace BlogApp.Domain.Enums;
+﻿namespace The_Blog.Domain.Enums;
 
 public enum PriorityLevel
 {

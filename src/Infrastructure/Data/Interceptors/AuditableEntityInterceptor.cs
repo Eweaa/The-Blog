@@ -1,10 +1,10 @@
-﻿using BlogApp.Application.Common.Interfaces;
-using BlogApp.Domain.Common;
+﻿using The_Blog.Application.Common.Interfaces;
+using The_Blog.Domain.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
-namespace BlogApp.Infrastructure.Data.Interceptors;
+namespace The_Blog.Infrastructure.Data.Interceptors;
 
 public class AuditableEntityInterceptor : SaveChangesInterceptor
 {

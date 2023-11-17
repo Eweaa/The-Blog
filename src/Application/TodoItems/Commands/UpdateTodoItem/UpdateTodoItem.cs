@@ -1,6 +1,6 @@
-﻿using BlogApp.Application.Common.Interfaces;
+﻿using The_Blog.Application.Common.Interfaces;
 
-namespace BlogApp.Application.TodoItems.Commands.UpdateTodoItem;
+namespace The_Blog.Application.TodoItems.Commands.UpdateTodoItem;
 
 public record UpdateTodoItemCommand : IRequest
 {

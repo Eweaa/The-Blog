@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace BlogApp.Web.Infrastructure;
+namespace The_Blog.Web.Infrastructure;
 
 public static class WebApplicationExtensions
 {

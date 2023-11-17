@@ -1,9 +1,9 @@
-﻿using BlogApp.Application.TodoLists.Commands.CreateTodoList;
-using BlogApp.Application.TodoLists.Commands.DeleteTodoList;
-using BlogApp.Application.TodoLists.Commands.UpdateTodoList;
-using BlogApp.Application.TodoLists.Queries.GetTodos;
+﻿using The_Blog.Application.TodoLists.Commands.CreateTodoList;
+using The_Blog.Application.TodoLists.Commands.DeleteTodoList;
+using The_Blog.Application.TodoLists.Commands.UpdateTodoList;
+using The_Blog.Application.TodoLists.Queries.GetTodos;
 
-namespace BlogApp.Web.Endpoints;
+namespace The_Blog.Web.Endpoints;
 
 public class TodoLists : EndpointGroupBase
 {

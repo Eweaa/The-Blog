@@ -1,4 +1,4 @@
-﻿namespace BlogApp.Domain.Constants;
+﻿namespace The_Blog.Domain.Constants;
 
 public abstract class Roles
 {

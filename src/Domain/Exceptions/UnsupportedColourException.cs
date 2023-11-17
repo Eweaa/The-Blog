@@ -1,4 +1,4 @@
-﻿namespace BlogApp.Domain.Exceptions;
+﻿namespace The_Blog.Domain.Exceptions;
 
 public class UnsupportedColourException : Exception
 {

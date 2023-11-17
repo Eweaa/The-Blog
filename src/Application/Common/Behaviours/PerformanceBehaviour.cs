@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics;
-using BlogApp.Application.Common.Interfaces;
+using The_Blog.Application.Common.Interfaces;
 using Microsoft.Extensions.Logging;
 
-namespace BlogApp.Application.Common.Behaviours;
+namespace The_Blog.Application.Common.Behaviours;
 
 public class PerformanceBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : notnull
 {
@@ -44,7 +44,7 @@ public class PerformanceBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequ
                 userName = await _identityService.GetUserNameAsync(userId);
             }
 
-            _logger.LogWarning("BlogApp Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@UserName} {@Request}",
+            _logger.LogWarning("The_Blog Long Running Request: {Name} ({ElapsedMilliseconds} milliseconds) {@UserId} {@UserName} {@Request}",
                 requestName, elapsedMilliseconds, userId, userName, request);
         }
 
