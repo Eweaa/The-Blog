@@ -1,0 +1,55 @@
+<header class="pb-2 mb-8 flex justify-between">
+  <div>
+    @if (profileData.userImg == null)
+    {
+      <img src="GenericUser.png" class="rounded-full"/>
+    }
+    @else
+    {
+      <img [src]="profileData.userImg" class="rounded-full"/>
+    }
+    <h1 class="text-4xl mx-5">{{ profileData.userName }}</h1>
+  </div>
+  <div>
+    @if (!MyProfile)
+    {
+      @if (profileData.isFollowd)
+      {
+        <button class="unfollow p-2" (click)="Unfollow()">
+          <span>Followed</span>
+          <span>Unfollow</span>
+        </button>
+      }
+      @else
+      {
+        <button class="p-2" (click)="Follow()">Follow</button>
+      }
+    }
+  </div>
+</header>
+
+<main class="container mx-auto">
+
+
+  @for (article of profileData.articles; track $index)
+  {
+    <app-profile-article-card [article]="article"></app-profile-article-card>
+  }
+
+
+  <div class="Backdrop" [hidden]="!newPost" (click)="toggleNewPost()"></div>
+<!--  <div class="NewPost p-4 rounded-md" [ngStyle]="{transform: newPost ? 'translateY(0)' : 'translateY(-100vh)'}">-->
+  <div class="NewPost p-4 rounded-md" [ngStyle]="{transform: newPost ? 'translateY(150%)' : 'translateY(0)'}">
+<!--  <div class="NewPost p-4 rounded-md">-->
+    <form [formGroup]="articleForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+      <input formControlName="title" id="title" type="text" placeholder='Title' class='p-2 my-1' />
+      <input id="image" type="file" (change)="getImage($event)" placeholder='Article Image' class='p-2 my-1' />
+      <textarea formControlName="content" id="content" name='content' cols="30" rows="10" placeholder='Content' class='p-2 mt-1'></textarea>
+      <button>Submit</button>
+    </form>
+  </div>
+
+  <button class="NewPostButton" (click)="toggleNewPost()">
+    <span class="material-symbols-outlined">edit</span>
+  </button>
+</main>

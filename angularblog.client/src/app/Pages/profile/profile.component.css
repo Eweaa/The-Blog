@@ -1,0 +1,150 @@
+header
+{
+  display: flex;
+  align-items: center;
+  /*border-bottom: 2px solid grey;*/
+  width: 90%;
+  margin-inline: auto;
+  *
+  {
+    display: inline-block;
+  }
+
+  img
+  {
+    height: 100px;
+  }
+
+  h1
+  {
+    font-family: 'Lobster', cursive;
+  }
+
+  button
+  {
+    color: white;
+    background: transparent;
+    border: 1px solid white;
+    border-radius: 25px;
+    transition: all ease-in-out 0.2s;
+    font-weight: bold;
+
+    width: 100px;
+    height: 50px;
+    &:hover
+    {
+      color: black;
+      background: white;
+      border: 1px solid black;
+    }
+  }
+
+  .unfollow
+  {
+    position: relative;
+    &:hover
+    {
+      border: 1px solid red;
+      background: transparent;
+      color: red;
+      content: "Unfollow";
+    }
+
+    span
+    {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    span:nth-child(1)
+    {
+      opacity: 1;
+    }
+
+    span:nth-child(2)
+    {
+      opacity: 0;
+    }
+
+    &:hover span:nth-child(1)
+    {
+      opacity: 0;
+    }
+
+    &:hover span:nth-child(2)
+    {
+      opacity: 1;
+    }
+  }
+}
+
+main
+{
+
+}
+
+.NewPost
+{
+  position: absolute;
+  z-index: 100;
+  left: 10%;
+  /*top: 10%;*/
+  top: -50%;
+  width: 80%;
+  background-color: #111111;
+  transition: all 0.5s ease-in-out;
+
+  input
+  {
+    width: 100%;
+    display: block;
+    background-color: transparent;
+    border: 1px solid grey;
+    color: inherit;
+    border-radius: 5px;
+  }
+
+  textarea
+  {
+    background-color: transparent;
+    border-radius: 5px;
+    color: inherit;
+    resize: none;
+    width: 100%;
+  }
+
+  button
+  {
+    background-color: inherit;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+  }
+}
+
+.NewPostButton
+{
+  background-color: inherit;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  text-align: center;
+  border: none;
+  color: inherit;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+
+.Backdrop {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 90;
+  cursor: pointer;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}

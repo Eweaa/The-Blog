@@ -1,0 +1,99 @@
+<main>
+  <section class="p-2">
+    <img src="https://images.pexels.com/photos/1995842/pexels-photo-1995842.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Typing Machine"/>
+  </section>
+
+  <section class="forms p-16">
+
+    <div class="form-container" [ngStyle]="{'translate': Form ? '0' : '-55%'}">
+
+      <div class="form">
+        <h1 class="text-4xl font-bold text-center mb-8">Create an Account</h1>
+
+        <form [formGroup]="RegisterForm" (ngSubmit)="onSubmit()">
+
+          <div class="col-span-full mb-4">
+            <label for="displayName" class="block text-sm/6 font-medium text-gray-900">Name</label>
+            <div class="mt-2">
+              <input type="text" id="displayName" formControlName="displayName" class="block w-full h-10 rounded-md border-0 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm/6">
+              <span *ngIf="!RegisterForm.get('displayName')!.valid && RegisterForm.get('displayName')!.touched" class="text-red-600">Name is Required</span>
+            </div>
+          </div>
+
+          <div class="col-span-full mb-4">
+            <label for="Email" class="block text-sm/6 font-medium text-gray-900">Email</label>
+            <div class="mt-2">
+              <input type="Email" id="Email" formControlName="email" class="block w-full h-10 rounded-md border-0 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm/6">
+              <span *ngIf="!RegisterForm.get('email')!.valid && RegisterForm.get('email')!.touched" class="text-red-600">Email is Invalid</span>
+            </div>
+          </div>
+
+          <div class="col-span-full mb-4">
+            <label for="Password" class="block text-sm/6 font-medium text-gray-900">Password</label>
+            <div class="mt-2">
+              <input type="Password" id="Password" formControlName="password" class="block w-full h-10 rounded-md border-0 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm/6">
+              <span *ngIf="!RegisterForm.get('password')!.valid && RegisterForm.get('password')!.touched" class="text-red-600">Password is Invalid</span>
+            </div>
+          </div>
+
+          <div class="col-span-full mb-4">
+            <label for="confirmPassword" class="block text-sm/6 font-medium text-gray-900">Confirm Password</label>
+            <div class="mt-2">
+              <input type="Password" id="confirmPassword" formControlName="confirmPassword" class="block w-full h-10 rounded-md border-0 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm/6">
+              <span *ngIf="RegisterForm.hasError('PasswordNoMatch') && RegisterForm.get('confirmPassword')!.touched" class="text-red-600">Passwords do not Match</span>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <button class="h-10 border rounded-md hover:bg-gray-100 focus:bg-gray-100">Register</button>
+          </div>
+
+        </form>
+
+        <div class="mt-4 mb-4 line-container">
+          <div class="line"></div>
+          Already Have an Account
+          <div class="line"></div>
+        </div>
+
+        <button class="border rounded" (click)="getLoginForm()">Login</button>
+      </div>
+
+      <div class="form">
+        <h1 class="text-4xl font-bold text-center mb-8">Welcome Back</h1>
+
+        <form [formGroup]="LoginForm" >
+
+          <div class="col-span-full mb-4">
+            <label for="Email1" class="block text-sm/6 font-medium text-gray-900">Email</label>
+            <div class="mt-2">
+              <input type="Email" id="Email1" formControlName="email" class="block w-full h-10 rounded-md border-0 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm/6">
+              <span *ngIf="!LoginForm.get('email')!.valid && LoginForm.get('email')!.touched" class="text-red-600">Email is Invalid</span>
+            </div>
+          </div>
+
+          <div class="col-span-full mb-4">
+            <label for="Password1" class="block text-sm/6 font-medium text-gray-900">Password</label>
+            <div class="mt-2">
+              <input type="Password" id="Password1" formControlName="password" class="block w-full h-10 rounded-md border-0 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm/6">
+              <span *ngIf="!LoginForm.get('password')!.valid && LoginForm.get('password')!.touched" class="text-red-600">Password is Invalid</span>
+            </div>
+          </div>
+
+          <div class="col-md-12">
+            <button (click)="login()" class="h-10 border rounded-md hover:bg-gray-100 focus:bg-gray-100">Login</button>
+          </div>
+        </form>
+
+        <div class="mt-4 mb-4 line-container">
+          <div class="line"></div>
+          Don't Have an Account
+          <div class="line"></div>
+        </div>
+
+        <button class="border rounded" (click)="getRegisterForm()">Register</button>
+      </div>
+    </div>
+
+  </section>
+</main>

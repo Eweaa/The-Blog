@@ -1,0 +1,36 @@
+<div style="width: 90%; margin:0 auto">
+
+<!--  <nav class="Navbar dark p-4">-->
+  <nav class="Navbar p-4">
+    <h1 class="text-4xl">
+      <a routerLink='/'>The Blog</a>
+    </h1>
+
+    <ul>
+      <li><a [routerLink]="['Profile/', userName]" class='p-2'>Profile</a></li>
+      <li><a routerLink='/Bookmarks' class='p-2 mx-2'>Bookmarks</a></li>
+      <li>
+        <img [src]='userImg' (click)="showDrop()" alt='profile' />
+        <div [hidden]="drop" class="drop">
+          <!--<a routerLink='/profile' class='p-2' (click)="showDrop()">Profile</a>-->
+          <!--<a routerLink='/bookmarks' class='p-2' (click)="showDrop()">Bookmarks</a>-->
+          <a href="/api" target="_blank" class='p-2'>Swagger</a>
+          <a href="/Identity/Account/Manage" class='p-2'>Account</a>
+          <a (click)="Logout()" class="p-2 cursor-pointer">Logout</a>
+        </div>
+      </li>
+      <button class='mx-2' (click)="toggleTheme()">
+        <span *ngIf="dark else showThis">
+          🌑
+        </span>
+        <ng-template #showThis>
+          <span>
+            ☀️
+          </span>
+        </ng-template>
+      </button>
+    </ul>
+  </nav>
+  <hr class="NavLine" />
+
+</div>

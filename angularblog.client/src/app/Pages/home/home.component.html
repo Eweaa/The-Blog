@@ -1,0 +1,47 @@
+<!--<div class="dark Home">-->
+<div class="Home">
+
+  <div class="LS">
+    <div>
+      <input type='text' placeholder='Search' class="SI p-2" />
+    </div>
+
+    <h2 class='mt-2 p-2 text-2xl'>Articles</h2>
+
+    @for (article of articles; track $index)
+    {
+      <app-article-card [article]="article"></app-article-card>
+    }
+
+  </div>
+
+  <div class="RS">
+    <h5>
+      People you may know
+    </h5>
+
+    <div class="Suggest mt-4">
+      <div class="details">
+        <div>
+          <img src='https://m.media-amazon.com/images/M/MV5BNTRiMWRlZDItYmUzOS00YmVhLTkwY2EtMjQwMDllOTEzNWE2XkEyXkFqcGdeQXVyNjUxMjc1OTM@._V1_.jpg' alt='' />
+        </div>
+        <div>
+          Thomas Friedman
+        </div>
+      </div>
+      <button class='p-2'>Follow</button>
+    </div>
+
+    <div class="Suggest mt-4">
+      <div class="details">
+        <div>
+          <img src='https://egs.edu/wp-content/uploads/2019/06/slavoj_zizek_saas-fee.jpg' alt='' />
+        </div>
+        <div>
+          Slavoj Žižek
+        </div>
+      </div>
+      <button class='p-2'>Follow</button>
+  </div>
+
+</div>

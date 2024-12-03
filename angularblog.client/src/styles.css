@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss/base.css";
+@import "tailwindcss/components.css";
+@import "tailwindcss/utilities.css";
+@import 'ngx-toastr/toastr';
+
+*
+{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /*outline: 1px solid red;*/
+}
+
+/*.dark*/
+/*{*/
+/*  background-color: #fafafa;*/
+/*}*/
+
+.dark {
+  background: #111111;
+  color: #fafafa;
+}
+
+.light {
+  background: #fafafa;
+  color: #111111;
+}
+
+.Theme {
+  min-height: 100vh;
+}
+

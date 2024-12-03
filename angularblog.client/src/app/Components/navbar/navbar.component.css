@@ -1,0 +1,115 @@
+.light {
+  h1 {
+    a {
+      color: black !important;
+    }
+  }
+}
+
+.dropLight {
+  background: #fafafa;
+  position: absolute;
+  z-index: 1;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px grey, -1px -1px 5px grey;
+
+  a {
+    color: #111111;
+    display: block;
+
+    &:hover {
+      color: #111111;
+    }
+  }
+
+  button {
+    font-size: 16px;
+    color: grey;
+    font-weight: bold;
+
+    &:hover {
+      color: #111111;
+    }
+  }
+}
+
+.Navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: inherit;
+  h1 {
+    a {
+      color: inherit;
+      font-family: 'Lobster', cursive;
+      text-decoration: none;
+    }
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    margin: 0;
+
+    li {
+      list-style-type: none;
+
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        cursor: pointer;
+        position: relative;
+      }
+
+      a {
+        color: grey;
+        text-decoration: none;
+
+        &:hover {
+          color: white;
+        }
+      }
+    }
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+    color: grey;
+    font-size: large;
+  }
+}
+
+.NavLine {
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid grey;
+  color: grey;
+}
+
+.drop {
+  background: #111111;
+  position: absolute;
+  z-index: 1;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px grey, -1px -1px 5px grey;
+
+  a {
+    color: white;
+    display: block;
+
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+@media(max-width: 500px) {
+  .Navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
