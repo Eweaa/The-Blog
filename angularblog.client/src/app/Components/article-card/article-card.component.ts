@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
-import {RouterModule} from "@angular/router";
-import {CommonModule} from "@angular/common";
+import { RouterModule } from "@angular/router";
+import { CommonModule } from "@angular/common";
 import {Article} from "../../Models/Article";
-import {ArticleBookmark} from "../../Models/ArticleBookmark";
-import {ArticleService} from "../../Services/article.service";
-import {ToastrService} from "ngx-toastr";
+import { ArticleBookmark } from "../../Models/ArticleBookmark";
+import { ArticleService } from "../../Services/article.service";
+import { ToastrService } from "ngx-toastr";
 
 @Component({
   selector: 'app-article-card',

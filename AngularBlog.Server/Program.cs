@@ -11,11 +11,13 @@ using Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// builder.WebHost.UseUrls("http://localhost:5006");
+
 builder.Services.AddControllers().AddJsonOptions(opts =>
 {
     opts.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
 });
-
+    
 builder.Services.AddSwaggerService();
 
 // builder.Services.AddEndpointsApiExplorer();
@@ -66,7 +68,6 @@ builder.Services.AddCors(opts =>
         policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:44345");
     });
 });
-
 
 var app = builder.Build();
 

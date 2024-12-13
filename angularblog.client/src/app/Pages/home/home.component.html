@@ -1,12 +1,13 @@
 <!--<div class="dark Home">-->
+<app-loader [hidden]="loading"></app-loader>
 <div class="Home">
 
   <div class="LS">
-    <div>
-      <input type='text' placeholder='Search' class="SI p-2" />
-    </div>
+<!--    <div>-->
+<!--      <input type='text' placeholder='Search' class="SI p-2" />-->
+<!--    </div>-->
 
-    <h2 class='mt-2 p-2 text-2xl'>Articles</h2>
+    <h2 class='p-2 text-4xl'>Articles</h2>
 
     @for (article of articles; track $index)
     {
@@ -16,7 +17,7 @@
   </div>
 
   <div class="RS">
-    <h5>
+    <h5 class="text-xl">
       People you may know
     </h5>
 
@@ -42,6 +43,6 @@
         </div>
       </div>
       <button class='p-2'>Follow</button>
+    </div>
   </div>
-
 </div>

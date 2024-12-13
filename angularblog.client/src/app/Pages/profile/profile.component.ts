@@ -11,6 +11,7 @@ import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/
 import {ProfileArticleCardComponent} from "../../Components/profile-article-card/profile-article-card.component";
 import {ProfileData} from "../../Models/ProfileData";
 import {AccountService} from "../../Services/account.service";
+import {LoaderComponent} from "../../Components/loader/loader.component";
 
 @Component({
   selector: 'app-profile',
@@ -20,6 +21,7 @@ import {AccountService} from "../../Services/account.service";
     CommonModule,
     ReactiveFormsModule,
     ProfileArticleCardComponent,
+    LoaderComponent,
   ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
@@ -43,6 +45,7 @@ export class ProfileComponent implements OnInit, OnDestroy
   articleForm!: FormGroup;
   MyProfile!: boolean;
   newPost: boolean = false;
+  loading: boolean = false;
 
   ngOnInit(): void
   {
@@ -64,6 +67,9 @@ export class ProfileComponent implements OnInit, OnDestroy
           this.profileData = res;
           // this.articles = res.articles;
           (localStorage.getItem("Name") == params['UserName']) ? this.MyProfile = true : this.MyProfile = false;
+          setTimeout(()=>{
+            this.loading = true;
+          }, 1000)
         },
         error: err => {
           this.toastr.error("Failed to load articles");
@@ -145,5 +151,4 @@ export class ProfileComponent implements OnInit, OnDestroy
     this.articlesSub!.unsubscribe();
   }
 
-  // protected readonly indexedDB = indexedDB;
 }

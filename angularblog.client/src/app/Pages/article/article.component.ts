@@ -3,12 +3,14 @@ import {Subscription} from "rxjs";
 import {Article} from "../../Models/Article";
 import {ArticleService} from "../../Services/article.service";
 import {ActivatedRoute, RouterLink} from "@angular/router";
+import {LoaderComponent} from "../../Components/loader/loader.component";
 
 @Component({
   selector: 'app-article',
   standalone: true,
   imports: [
-    RouterLink
+    RouterLink,
+    LoaderComponent
   ],
   templateUrl: './article.component.html',
   styleUrl: './article.component.css'
@@ -21,6 +23,7 @@ export class ArticleComponent implements OnInit
   articleSub: Subscription | null = null;
   // article: Article = new Article("", "", "", "", "", "", "");
   article!: Article;
+  loading: boolean = false;
 
   ngOnInit(): void
   {
@@ -34,6 +37,7 @@ export class ArticleComponent implements OnInit
         next: res => {
           console.log(res);
           this.article = res;
+          this.loading = true;
         },
         error: err => {
           console.log(err);

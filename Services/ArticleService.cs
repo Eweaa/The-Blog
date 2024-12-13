@@ -112,7 +112,7 @@ public class ArticleService
             if(article.ArticleImg is null)
                 continue;
             
-            article.ArticleImg = article.ArticleImg.Replace("wwwroot", "https://localhost:7145");
+            article.ArticleImg = article.ArticleImg.Replace("wwwroot", "https://localhost:44377");
         }
 
         foreach (var article in articles)
@@ -120,7 +120,7 @@ public class ArticleService
             if(article.UserImg is null)
                 continue;
             
-            article.UserImg = article.UserImg.Replace("wwwroot", "https://localhost:7145");
+            article.UserImg = article.UserImg.Replace("wwwroot", "https://localhost:44377");
         }
         return articles;
     }
@@ -129,12 +129,12 @@ public class ArticleService
         if(article.ArticleImg is null)
             return article;
         
-        article.ArticleImg = article.ArticleImg.Replace("wwwroot", "https://localhost:7145");
+        article.ArticleImg = article.ArticleImg.Replace("wwwroot", "https://localhost:44377");
         
         if(article.UserImg is null)
             return article;
         
-        article.UserImg = article.UserImg.Replace("wwwroot", "https://localhost:7145");
+        article.UserImg = article.UserImg.Replace("wwwroot", "https://localhost:44377");
         
         return article;
     }

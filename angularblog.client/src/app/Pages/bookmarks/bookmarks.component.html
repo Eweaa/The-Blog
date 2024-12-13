@@ -1,4 +1,18 @@
+<app-loader [hidden]="loading"></app-loader>
 <main class="container mx-auto">
+  @if (articles == null || articles.length == 0)
+  {
+    <div class="mx-auto w-fit text-center mt-40">
+      <h1 class="text-6xl mb-10">Bookmarks Are Empty</h1>
+<!--      <img src="https://cdn-icons-png.flaticon.com/512/5425/5425964.png"/>-->
+      <div class="mx-auto inline-block">
+        <img src="https://cdn-icons-png.freepik.com/256/16468/16468822.png?semt=ais_hybrid"/>
+      </div>
+    </div>
+  }
+  @else
+  {
+  }
   @for (article of articles; track $index)
   {
     <app-article-card [article]="article"></app-article-card>

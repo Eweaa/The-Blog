@@ -1,0 +1,11 @@
+
+/AngularBlog.Server/bin
+/AngularBlog.Server/obj
+/Core/obj
+/Services/obj
+/Services/bin
+/angularblog.client/obj
+/Core/bin
+/.idea
+/.vs
+/.idea

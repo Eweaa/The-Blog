@@ -3,11 +3,12 @@ import {HomeService} from "../../Services/home.service";
 import {Subscription} from "rxjs";
 import {ArticleCardComponent} from "../../Components/article-card/article-card.component";
 import {ArticleBookmark} from "../../Models/ArticleBookmark";
+import {LoaderComponent} from "../../Components/loader/loader.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [ArticleCardComponent],
+  imports: [ArticleCardComponent, LoaderComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -15,7 +16,7 @@ export class HomeComponent implements OnInit, OnDestroy
 {
   articlesSub: Subscription | null = null;
   articles: Array<ArticleBookmark> = [];
-
+  loading: boolean = false;
   constructor(private homeService: HomeService) {}
 
   ngOnInit(): void
@@ -33,6 +34,7 @@ export class HomeComponent implements OnInit, OnDestroy
           obj.isBookmarked = obj.isBookmarked == false;
           this.articles.push(obj);
         }
+        this.loading = true;
       },
       error: err => {
         console.log(err);
